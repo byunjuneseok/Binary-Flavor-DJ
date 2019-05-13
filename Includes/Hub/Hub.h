@@ -18,7 +18,7 @@ namespace Binaryflavordj
 
         bool AssignMixer(Binaryflavordj::MixerModule& newMixer);
 
-        bool ConnectDeck(int deckNumber, Binaryflavordj::DeckModule& newDeck);
+        bool AssignDeck(int deckNumber, Binaryflavordj::DeckModule& newDeck);
 
         bool CheckDeckState(int deckNumber) const;
 

@@ -19,14 +19,15 @@ namespace Binaryflavordj
         }
     }
 
-    bool Hub::ConnectDeck(int deckNumber, Binaryflavordj::DeckModule& newDeck)
+    bool Hub::AssignDeck(int deckNumber, Binaryflavordj::DeckModule& newDeck)
     {
-        if (this->m_decklist[deckNumber])
+        if (this->m_decklist[deckNumber - 1])
         {
             return false;
         }
         else
         {
+            this->m_decklist[deckNumber - 1] = &newDeck;
             return true;
         }
     }
@@ -44,6 +45,25 @@ namespace Binaryflavordj
 
     void Hub::PrintState() const
     {
-        std::cout << "Mixer Name : " << m_mixer->GetName() << std::endl;
+        if (this->m_mixer)
+        {
+            std::cout << "Mixer Name : " << m_mixer->GetName() << std::endl;
+        }
+        else
+        {
+            std::cout << "No Mixer!" << std::endl;
+        }
+        for (int i = 0; i < 4; i++)
+        {
+            if (this->m_decklist[i])
+            {
+                std::cout << "DECK #" << i + 1 <<  ": " <<
+                this->m_decklist[i]->GetName() << std::endl;
+            }
+            else
+            {
+                std::cout << "DECK #" << i + 1 <<  ": empty" << std::endl;
+            }
+        }
     }
 }
