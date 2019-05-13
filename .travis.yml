@@ -13,5 +13,4 @@ before_install:
     sudo apt-get install -y --no-install-recommends xorg-dev libglu1-mesa-dev;
     sudo apt-get install -y --no-install-recommends libxrandr-dev libxi-dev libxxf86vm-dev libxinerama-dev libxcursor-dev lcov;
     sudo apt-get install -y --no-install-recommends libopenal-dev libvorbis-dev libflac-dev;
-    sudo make -j $CPU_NUM;
     fi
