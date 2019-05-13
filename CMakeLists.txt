@@ -27,4 +27,4 @@ include_directories(Libraries)
 add_subdirectory(Sources)
 
 # Add executable.
-add_executable(binary_flavor_dj Sources/main.cpp Includes/Hub/Hub.h Sources/Hub/Hub.cpp Sources/Deck/Deck.cpp)
+add_executable(binary_flavor_dj Sources/main.cpp Includes/Hub/Hub.h Sources/Hub/Hub.cpp Sources/Modules/DeckModule.cpp Includes/Modules/Module.h)

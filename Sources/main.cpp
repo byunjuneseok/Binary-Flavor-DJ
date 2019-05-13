@@ -1,15 +1,20 @@
 #include <iostream>
+#include <string>
 
 #include <Hub/Hub.h>
 #include <Windows/Window.h>
 #include <Windows/MixerWindow.h>
 
 int main() {
-    Binaryflavordj::Mixer mainMixer;
+    Binaryflavordj::MixerModule mainMixer;
+    mainMixer.SetName("Main Mixer");
+
     Binaryflavordj::Hub mainHub;
-    std::cout << mainHub.CheckDeckState(0);
+    mainHub.AssignMixer(mainMixer);
+    mainHub.PrintState();
 
-    std::cout << "Hello, World!" << std::endl;
+    mainMixer.SetName("Changed");
+    mainHub.PrintState();
+
     return 0;
-
 }

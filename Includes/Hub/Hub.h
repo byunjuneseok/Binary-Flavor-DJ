@@ -5,27 +5,29 @@
 #ifndef BINARY_FLAVOR_DJ_HUB_H
 #define BINARY_FLAVOR_DJ_HUB_H
 
-#include <Mixer/Mixer.h>
-#include <Deck/Deck.h>
+#include <Modules/MixerModule.h>
+#include <Modules/DeckModule.h>
 
 namespace Binaryflavordj
 {
-class Hub
-{
-public:
-    Hub() = default;
-    ~Hub() = default;
+    class Hub
+    {
+    public:
+        Hub() = default;
+        ~Hub() = default;
 
-    bool AssignMixer(Binaryflavordj::Mixer& newMixer);
+        bool AssignMixer(Binaryflavordj::MixerModule& newMixer);
 
-    bool ConnectDeck(int deckNumber, Binaryflavordj::Deck& newDeck);
+        bool ConnectDeck(int deckNumber, Binaryflavordj::DeckModule& newDeck);
 
-    bool CheckDeckState(int deckNumber) const;
+        bool CheckDeckState(int deckNumber) const;
 
-protected:
-    Binaryflavordj::Deck* m_decklist[4] = {nullptr};
-    Binaryflavordj::Mixer* m_mixer = nullptr;
-};
+        void PrintState() const;
+
+    protected:
+        Binaryflavordj::DeckModule* m_decklist[4] = {nullptr};
+        Binaryflavordj::MixerModule* m_mixer = nullptr;
+    };
 }
 
 #endif //BINARY_FLAVOR_DJ_HUB_H

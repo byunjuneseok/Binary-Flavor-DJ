@@ -3,7 +3,7 @@
 //
 
 #include <Windows/MixerWindow.h>
-#include <Mixer/Mixer.h>
+#include <Modules/MixerModule.h>
 
 namespace Binaryflavordj
 {
