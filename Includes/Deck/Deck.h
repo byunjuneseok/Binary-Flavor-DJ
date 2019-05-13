@@ -5,7 +5,7 @@
 #ifndef BINARY_FLAVOR_DJ_DECK_H
 #define BINARY_FLAVOR_DJ_DECK_H
 
-namespace Deck
+namespace Binaryflavordj
 {
 class Deck
 {
