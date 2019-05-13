@@ -2,13 +2,9 @@ language: cpp
 
 matrix:
   include:
-    # Test Docker based on Ubuntu 18.04 LTS + gcc
     - os: linux
       dist: trusty
       sudo: required
-      services: docker
-      script:
-        - sh Scripts/travis_build_docker.sh Scripts/Dockerfile.bionic bionic
 
 before_install:
   - eval "${MATRIX_EVAL}"
