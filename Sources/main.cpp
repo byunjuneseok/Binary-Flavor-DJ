@@ -28,6 +28,8 @@ int main() {
     mainHub.AssignDeck(3, deck2);
     mainHub.PrintState();
 
+    Binaryflavordj::MixerModuleWindow mw;
+    mw.Start();
 
     return 0;
 }
