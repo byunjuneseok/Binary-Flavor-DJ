@@ -11,11 +11,11 @@
 
 namespace Binaryflavordj
 {
-class Window
+class ModuleWindow
 {
 public:
-    Window() = default;
-    virtual ~Window() = default;
+    ModuleWindow() = default;
+    virtual ~ModuleWindow() = default;
 
     virtual void Start() = 0;
 

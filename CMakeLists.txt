@@ -1,10 +1,10 @@
-# Minimum version of CMAKE.
-cmake_minimum_required(VERSION 3.9.2)
+# CMake version
+cmake_minimum_required(VERSION 3.8.2 FATAL_ERROR)
 
 # Include cmake modules
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
 
-# Declare project.
+# Declare project
 project(Binaryflavordj)
 
 # Set output directories
@@ -16,15 +16,21 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 # Set enable output of compile commands during generation
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# Set standard library.
-set(CMAKE_CXX_STANDARD 14)
-
 # Includes
 include_directories(Includes)
 include_directories(Libraries)
 
+# Compile options
+include(CMake/CompileOptions.cmake)
+
+# Build type - Release by default
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
+# Overrides
+set(CMAKE_MACOSX_RPATH ON)
+
 # Project modules
 add_subdirectory(Sources)
-
-# Add executable.
-add_executable(binary_flavor_dj Sources/main.cpp Includes/Hub/Hub.h Sources/Hub/Hub.cpp Sources/Modules/DeckModule.cpp Includes/Modules/Module.h)
+add_subdirectory(Libraries/imgui)

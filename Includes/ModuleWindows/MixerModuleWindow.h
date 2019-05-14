@@ -5,15 +5,15 @@
 #ifndef BINARY_FLAVOR_DJ_MIXERWINDOW_H
 #define BINARY_FLAVOR_DJ_MIXERWINDOW_H
 
-#include <Windows/Window.h>
+#include <ModuleWindows/ModuleWindow.h>
 
 namespace Binaryflavordj
 {
-class MixerWindow : public Window
+class MixerModuleWindow : public ModuleWindow
 {
 public:
-    MixerWindow() = default;
-    ~MixerWindow() = default;
+    MixerModuleWindow() = default;
+    ~MixerModuleWindow() override = default;
 
     void Start() override;
 
@@ -24,6 +24,10 @@ public:
     void Finish() override;
 
 private:
+    ImGuiWindowFlags m_flags = 0;
+    ImGuiWindowFlags m_popupFlags = 0;
+
+    bool m_isOpened = true;
 
     float m_positionX = 0.0f;
     float m_positionY = 0.0f;

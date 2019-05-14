@@ -84,14 +84,14 @@ extern "C" {
  * Compiler- and platform-specific preprocessor work
  *************************************************************************/
 
-/* If we are we on Windows, we want a single define for it.
+/* If we are we on ModuleWindows, we want a single define for it.
  */
 #if !defined(_WIN32) && (defined(__WIN32__) || defined(WIN32) || defined(__MINGW32__))
  #define _WIN32
 #endif /* _WIN32 */
 
 /* It is customary to use APIENTRY for OpenGL function pointer declarations on
- * all platforms.  Additionally, the Windows OpenGL header needs APIENTRY.
+ * all platforms.  Additionally, the ModuleWindows OpenGL header needs APIENTRY.
  */
 #ifndef APIENTRY
  #ifdef _WIN32
@@ -101,21 +101,21 @@ extern "C" {
  #endif
 #endif /* APIENTRY */
 
-/* Some Windows OpenGL headers need this.
+/* Some ModuleWindows OpenGL headers need this.
  */
 #if !defined(WINGDIAPI) && defined(_WIN32)
  #define WINGDIAPI __declspec(dllimport)
  #define GLFW_WINGDIAPI_DEFINED
 #endif /* WINGDIAPI */
 
-/* Some Windows GLU headers need this.
+/* Some ModuleWindows GLU headers need this.
  */
 #if !defined(CALLBACK) && defined(_WIN32)
  #define CALLBACK __stdcall
  #define GLFW_CALLBACK_DEFINED
 #endif /* CALLBACK */
 
-/* Include because most Windows GLU headers need wchar_t and
+/* Include because most ModuleWindows GLU headers need wchar_t and
  * the OS X OpenGL header blocks the definition of ptrdiff_t by glext.h.
  * Include it unconditionally to avoid surprising side-effects.
  */

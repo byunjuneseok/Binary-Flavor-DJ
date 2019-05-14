@@ -2,8 +2,8 @@
 #include <string>
 
 #include <Hub/Hub.h>
-#include <Windows/Window.h>
-#include <Windows/MixerWindow.h>
+#include <ModuleWindows/ModuleWindow.h>
+#include <ModuleWindows/MixerModuleWindow.h>
 
 int main() {
     Binaryflavordj::MixerModule mainMixer;
