@@ -4,9 +4,9 @@
 #include <Hub/Hub.h>
 #include <ModuleWindows/ModuleWindow.h>
 #include <ModuleWindows/MixerModuleWindow.h>
+    
 
-
-int main() {
+int main(int argc, char *argv[]) {
     Binaryflavordj::MixerModule mainMixer;
     mainMixer.SetName("Main Mixer");
 

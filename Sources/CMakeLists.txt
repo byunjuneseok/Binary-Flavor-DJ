@@ -17,6 +17,7 @@ include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/../Libraries
 )
 
+
 # Sources
 file(GLOB_RECURSE headers
         ${CMAKE_SOURCE_DIR}/Includes/*.h)
@@ -24,9 +25,13 @@ file(GLOB_RECURSE headers
 file(GLOB_RECURSE sources
         ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
+
 # Build executable
 add_executable(${target}
-        ${sources} ../Includes/ModuleWindows/WindowManager.h Modules/WindowManager.cpp)
+        ${sources} main.cpp)
+
+target_link_libraries(Bfdj Qt5::Widgets)
+
 
 # Project options
 set_target_properties(${target}

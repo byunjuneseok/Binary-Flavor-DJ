@@ -5,7 +5,6 @@
 #include <ModuleWindows/MixerModuleWindow.h>
 #include <Modules/MixerModule.h>
 
-
 namespace Binaryflavordj
 {
 void MixerModuleWindow::Start()
