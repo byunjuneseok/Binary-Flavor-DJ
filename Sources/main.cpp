@@ -5,6 +5,7 @@
 #include <ModuleWindows/ModuleWindow.h>
 #include <ModuleWindows/MixerModuleWindow.h>
 
+
 int main() {
     Binaryflavordj::MixerModule mainMixer;
     mainMixer.SetName("Main Mixer");
@@ -29,7 +30,9 @@ int main() {
     mainHub.PrintState();
 
     Binaryflavordj::MixerModuleWindow mw;
-    mw.Start();
+    std::cout << "Y" << std::endl;
+
+    std::cout << "X" << std::endl;
 
     return 0;
 }

@@ -24,16 +24,6 @@ public:
     void Finish() override;
 
 private:
-    ImGuiWindowFlags m_flags = 0;
-    ImGuiWindowFlags m_popupFlags = 0;
-
-    bool m_isOpened = true;
-
-    float m_positionX = 0.0f;
-    float m_positionY = 0.0f;
-
-    float m_width = 0.0f;
-    float m_height = 0.0f;
 };
 }
 

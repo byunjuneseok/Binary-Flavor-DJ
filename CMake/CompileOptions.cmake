@@ -2,16 +2,6 @@
 # Platform and architecture setup
 #
 
-# Set warnings as errors flag
-option(CUBBYFLOW_WARNINGS_AS_ERRORS "Treat all warnings as errors" ON)
-if(CUBBYFLOW_WARNINGS_AS_ERRORS)
-    if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-        set(WARN_AS_ERROR_FLAGS	"/WX")
-    else()
-        set(WARN_AS_ERROR_FLAGS "-Werror")
-    endif()
-endif()
-
 # Get upper case system name
 string(TOUPPER ${CMAKE_SYSTEM_NAME} SYSTEM_NAME_UPPER)
 

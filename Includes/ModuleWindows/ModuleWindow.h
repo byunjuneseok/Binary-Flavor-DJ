@@ -5,7 +5,6 @@
 #ifndef BINARY_FLAVOR_DJ_WINDOW_H
 #define BINARY_FLAVOR_DJ_WINDOW_H
 
-#include <imgui/imgui.h>
 
 #include <string>
 
