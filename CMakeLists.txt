@@ -1,42 +1,19 @@
-# CMake version
-cmake_minimum_required(VERSION 3.8.2 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.1.0)
 
-# Include cmake modules
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake")
-
-# Declare project
 project(Binaryflavordj)
 
-# Set output directories
-set(DEFAULT_CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
-
-# Set enable output of compile commands during generation
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
+# Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+# Instruct CMake to run moc automatically when needed
 set(CMAKE_AUTOMOC ON)
+# Create code from a list of Qt designer ui files
+# set(CMAKE_AUTOUIC ON)
 
-find_package(Qt5Widgets)
+# Find the Qt library
+find_package(Qt5Widgets CONFIG REQUIRED)
+find_package(Qt5Test REQUIRED)
 
-
-
-# Includes
 include_directories(Includes)
-include_directories(Libraries)
 
-# Compile options
-include(CMake/CompileOptions.cmake)
-
-# Build type - Release by default
-if (NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Release)
-endif()
-
-# Overrides
-set(CMAKE_MACOSX_RPATH ON)
-
-# Project modules
+# Add subdirectory
 add_subdirectory(Sources)

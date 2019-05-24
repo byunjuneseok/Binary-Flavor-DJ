@@ -1,55 +1,18 @@
 # Target name
 set(target Bfdj)
 
-# Find packages
-find_package(OpenGL REQUIRED)
-if (CMAKE_CXX_COMPILER_ID MATCHES "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    find_package(glfw3 REQUIRED)
-    find_package(OpenAL REQUIRED)
-endif()
-
-# Includes
-include_directories(${CMAKE_SOURCE_DIR}/Includes)
-
-# Includes
-include_directories(
-        ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}/../Libraries
-)
-
-
 # Sources
-file(GLOB_RECURSE headers
-        ${CMAKE_SOURCE_DIR}/Includes/*.h)
-
-file(GLOB_RECURSE sources
-        ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
-
-
-# Build executable
-add_executable(${target}
-        ${sources} main.cpp)
-
-target_link_libraries(Bfdj Qt5::Widgets)
-
-
-# Project options
-set_target_properties(${target}
-        PROPERTIES
-        ${DEFAULT_PROJECT_OPTIONS}
+file(GLOB_RECURSE headers ${CMAKE_SOURCE_DIR}/Includes/*.h)
+file(GLOB_RECURSE sources ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+file(GLOB_RECURSE common_sources
+        "${CMAKE_SOURCE_DIR}/Includes/*.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
         )
 
-# Compile options
-target_compile_options(${target}
-        PRIVATE
-
-        PUBLIC
-        ${DEFAULT_COMPILE_OPTIONS}
-
-        INTERFACE
+add_executable(${CMAKE_PROJECT_NAME}
+        ${common_sources}
         )
-target_compile_definitions(${target}
-        PRIVATE
-        IMAGES_DIR="${CMAKE_SOURCE_DIR}/Assets/Images/"
-        SOUNDS_DIR="${CMAKE_SOURCE_DIR}/Assets/Sounds/"
+
+target_link_libraries(${CMAKE_PROJECT_NAME}
+        Qt5::Widgets
         )

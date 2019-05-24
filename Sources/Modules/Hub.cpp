@@ -2,10 +2,25 @@
 // Created by Juneseok Byun on 2019-05-12.
 //
 #include <iostream>
-#include <Hub/Hub.h>
+#include <Modules/Hub.h>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets>
 
 namespace Binaryflavordj
 {
+    Hub::Hub(QWidget *parent)
+        :QMainWindow(parent)
+    {
+        auto place = new QWidget;
+        auto vLayout = new QVBoxLayout;
+
+        auto but = new QPushButton(QStringLiteral("irrigate virtual devices"));
+        connect(but, &QPushButton::clicked, this, &Hub::close);
+        vLayout->addWidget(but);
+        place->setLayout(vLayout);
+        setCentralWidget(place);
+    }
     bool Hub::AssignMixer(Binaryflavordj::MixerModule& newMixer)
     {
         if (this->m_mixer)
@@ -66,4 +81,5 @@ namespace Binaryflavordj
             }
         }
     }
+
 }

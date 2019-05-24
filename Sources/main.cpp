@@ -1,12 +1,15 @@
 #include <iostream>
 #include <string>
 
-#include <Hub/Hub.h>
-#include <ModuleWindows/ModuleWindow.h>
-#include <ModuleWindows/MixerModuleWindow.h>
-    
+#include <Modules/Hub.h>
 
-int main(int argc, char *argv[]) {
+#include <QApplication>
+#include <QWidget>
+
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+
     Binaryflavordj::MixerModule mainMixer;
     mainMixer.SetName("Main Mixer");
 
@@ -29,10 +32,11 @@ int main(int argc, char *argv[]) {
     mainHub.AssignDeck(3, deck2);
     mainHub.PrintState();
 
-    Binaryflavordj::MixerModuleWindow mw;
+    mainHub.show();
+
     std::cout << "Y" << std::endl;
 
     std::cout << "X" << std::endl;
 
-    return 0;
+    return app.exec();
 }
