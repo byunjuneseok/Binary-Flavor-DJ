@@ -3,8 +3,6 @@
 //
 #include <iostream>
 #include <Modules/Hub.h>
-#include <QtWidgets/QMainWindow>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets>
 
 namespace Binaryflavordj
@@ -12,15 +10,22 @@ namespace Binaryflavordj
     Hub::Hub(QWidget *parent)
         :QMainWindow(parent)
     {
+        this->setWindowTitle(QStringLiteral("Binaryflavor DJ HUB"));
+        this->resize(800, 500);
+
         auto place = new QWidget;
-        auto vLayout = new QVBoxLayout;
+        auto layout = new QGridLayout;
+
+        setCentralWidget(place);
+        place->setLayout(layout);
 
         auto but = new QPushButton(QStringLiteral("irrigate virtual devices"));
-        connect(but, &QPushButton::clicked, this, &Hub::close);
-        vLayout->addWidget(but);
-        place->setLayout(vLayout);
-        setCentralWidget(place);
+        connect(but, &QPushButton::clicked, this, &Hub::PrintState);
+
+        layout->addWidget(but);
+
     }
+
     bool Hub::AssignMixer(Binaryflavordj::MixerModule& newMixer)
     {
         if (this->m_mixer)

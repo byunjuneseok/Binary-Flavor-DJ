@@ -7,14 +7,15 @@
 
 #include <Modules/MixerModule.h>
 #include <Modules/DeckModule.h>
+#include <QtWidgets/QMainWindow>
 
 namespace Binaryflavordj
 {
-    class Hub
+    class Hub : public QMainWindow
     {
+        Q_OBJECT
     public:
-        Hub() = default;
-        ~Hub() = default;
+        explicit Hub(QWidget* parent = nullptr);
 
         bool AssignMixer(Binaryflavordj::MixerModule& newMixer);
 
@@ -27,6 +28,7 @@ namespace Binaryflavordj
     protected:
         Binaryflavordj::DeckModule* m_decklist[4] = {nullptr};
         Binaryflavordj::MixerModule* m_mixer = nullptr;
+
     };
 }
 
