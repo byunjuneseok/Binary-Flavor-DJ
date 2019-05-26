@@ -5,22 +5,23 @@
 
 #include <QApplication>
 #include <QWidget>
+#include <ModuleWindows/DeckModuleWindow.h>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    Binaryflavordj::MixerModule mainMixer;
+    Bfdj::MixerModule mainMixer;
     mainMixer.SetName("Main Mixer");
 
     std::cout << "Create module." << std::endl;
-    Binaryflavordj::DeckModule deck1;
-    Binaryflavordj::DeckModule deck2;
+    Bfdj::DeckModule deck1;
+    Bfdj::DeckModule deck2;
     deck1.SetName("Deck 1");
     deck2.SetName("Deck 2");
 
     std::cout << "Assign Mixer." << std::endl;
-    Binaryflavordj::Hub mainHub;
+    Bfdj::Hub mainHub;
     mainHub.AssignMixer(mainMixer);
     mainHub.PrintState();
 
@@ -32,11 +33,9 @@ int main(int argc, char *argv[])
     mainHub.AssignDeck(3, deck2);
     mainHub.PrintState();
 
-    mainHub.show();
-
-    std::cout << "Y" << std::endl;
-
-    std::cout << "X" << std::endl;
+    // test DeckModule & DeckModuleWindow
+    Bfdj::DeckModuleWindow testDeckWindow(nullptr ,&deck1);
+    testDeckWindow.show();
 
     return app.exec();
 }

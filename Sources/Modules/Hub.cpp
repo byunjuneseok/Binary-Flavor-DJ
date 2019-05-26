@@ -5,7 +5,7 @@
 #include <Modules/Hub.h>
 #include <QtWidgets>
 
-namespace Binaryflavordj
+namespace Bfdj
 {
     Hub::Hub(QWidget *parent)
         :QMainWindow(parent)
@@ -26,7 +26,7 @@ namespace Binaryflavordj
 
     }
 
-    bool Hub::AssignMixer(Binaryflavordj::MixerModule& newMixer)
+    bool Hub::AssignMixer(Bfdj::MixerModule& newMixer)
     {
         if (this->m_mixer)
         {
@@ -39,7 +39,7 @@ namespace Binaryflavordj
         }
     }
 
-    bool Hub::AssignDeck(int deckNumber, Binaryflavordj::DeckModule& newDeck)
+    bool Hub::AssignDeck(int deckNumber, Bfdj::DeckModule& newDeck)
     {
         if (this->m_decklist[deckNumber - 1])
         {

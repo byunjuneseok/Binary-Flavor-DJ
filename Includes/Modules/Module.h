@@ -11,7 +11,7 @@
 
 #include <string>
 
-namespace Binaryflavordj
+namespace Bfdj
 {
     class Module
     {

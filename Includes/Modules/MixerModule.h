@@ -11,7 +11,7 @@
 #include <Modules/DeckModule.h>
 
 
-namespace Binaryflavordj
+namespace Bfdj
 {
     class MixerModule : public Module
     {

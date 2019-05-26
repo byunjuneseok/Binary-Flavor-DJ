@@ -11,7 +11,7 @@ file(GLOB_RECURSE common_sources
 
 add_executable(${CMAKE_PROJECT_NAME}
         ${common_sources}
-        )
+        ../Includes/ModuleWindows/DeckModuleWindow.h ModuleWindows/DeckModuleWindow.cpp)
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
         Qt5::Widgets

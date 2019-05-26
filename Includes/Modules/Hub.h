@@ -9,7 +9,7 @@
 #include <Modules/DeckModule.h>
 #include <QtWidgets/QMainWindow>
 
-namespace Binaryflavordj
+namespace Bfdj
 {
     class Hub : public QMainWindow
     {
@@ -17,18 +17,17 @@ namespace Binaryflavordj
     public:
         explicit Hub(QWidget* parent = nullptr);
 
-        bool AssignMixer(Binaryflavordj::MixerModule& newMixer);
+        bool AssignMixer(Bfdj::MixerModule& newMixer);
 
-        bool AssignDeck(int deckNumber, Binaryflavordj::DeckModule& newDeck);
+        bool AssignDeck(int deckNumber, Bfdj::DeckModule& newDeck);
 
         bool CheckDeckState(int deckNumber) const;
 
         void PrintState() const;
 
     protected:
-        Binaryflavordj::DeckModule* m_decklist[4] = {nullptr};
-        Binaryflavordj::MixerModule* m_mixer = nullptr;
-
+        Bfdj::DeckModule* m_decklist[4] = {nullptr};
+        Bfdj::MixerModule* m_mixer = nullptr;
     };
 }
 

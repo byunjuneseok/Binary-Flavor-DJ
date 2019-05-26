@@ -8,7 +8,7 @@
 #include <Modules/Module.h>
 #include <string>
 
-namespace Binaryflavordj
+namespace Bfdj
 {
     class DeckModule : public Module
     {
@@ -16,8 +16,14 @@ namespace Binaryflavordj
         DeckModule() = default;
         ~DeckModule() override = default;
 
+        void Play();
+        void Cue();
+
     protected:
         int m_deck_number = 0;
+
+    private:
+        bool playState = false;
     };
 }
 
