@@ -1,11 +1,10 @@
 #include <iostream>
 #include <string>
-
 #include <Modules/Hub.h>
-
+#include <ModuleWindows/DeckModuleWindow.h>
 #include <QApplication>
 #include <QWidget>
-#include <ModuleWindows/DeckModuleWindow.h>
+
 
 int main(int argc, char *argv[])
 {

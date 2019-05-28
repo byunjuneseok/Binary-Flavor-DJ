@@ -9,10 +9,18 @@ file(GLOB_RECURSE common_sources
         "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
         )
 
+
+# Includes
+include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}/../Libraries
+)
+
 add_executable(${CMAKE_PROJECT_NAME}
         ${common_sources}
-        ../Includes/ModuleWindows/DeckModuleWindow.h ModuleWindows/DeckModuleWindow.cpp)
+        Track/Analyzer.cpp ../Includes/Track/MetaData.h Track/MetaData.cpp)
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
         Qt5::Widgets
+        # libnyquist
         )

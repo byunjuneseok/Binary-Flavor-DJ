@@ -3,9 +3,24 @@
 //
 #include <Modules/DeckModule.h>
 #include <iostream>
+#include <string>
 
 namespace Bfdj
 {
+    bool DeckModule::loadTrack(std::string &filePath)
+    {
+        if (playState)
+        {
+            return false;
+        }
+        else
+        {
+            m_MetaData->ReadMetaData(filePath);
+            m_Analyzer->Analyze();
+            return true;
+        }
+    }
+
     void DeckModule::Play()
     {
         if (playState)

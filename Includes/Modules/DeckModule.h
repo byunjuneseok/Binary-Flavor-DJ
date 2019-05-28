@@ -6,6 +6,8 @@
 #define BINARY_FLAVOR_DJ_DECKMODULE_H
 
 #include <Modules/Module.h>
+#include <Track/MetaData.h>
+#include <Track/Analyzer.h>
 #include <string>
 
 namespace Bfdj
@@ -16,6 +18,8 @@ namespace Bfdj
         DeckModule() = default;
         ~DeckModule() override = default;
 
+        bool loadTrack(std::string &filePath);
+
         void Play();
         void Cue();
 
@@ -24,6 +28,8 @@ namespace Bfdj
 
     private:
         bool playState = false;
+        Bfdj::MetaData* m_MetaData = new Bfdj::MetaData;
+        Bfdj::Analyzer* m_Analyzer = new Bfdj::Analyzer;
     };
 }
 

@@ -14,6 +14,10 @@ find_package(Qt5Widgets CONFIG REQUIRED)
 find_package(Qt5Test REQUIRED)
 
 include_directories(Includes)
+include_directories(Libraries)
 
 # Add subdirectory
 add_subdirectory(Sources)
+
+# Add libraries
+# add_subdirectory(Libraries/libnyquist)

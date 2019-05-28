@@ -41,7 +41,7 @@ namespace Bfdj
 
     bool Hub::AssignDeck(int deckNumber, Bfdj::DeckModule& newDeck)
     {
-        if (this->m_decklist[deckNumber - 1])
+        if (m_decklist[deckNumber - 1])
         {
             return false;
         }
@@ -53,7 +53,7 @@ namespace Bfdj
     }
 
     bool Hub::CheckDeckState(int deckNumber) const {
-        if (this->m_decklist[deckNumber])
+        if (m_decklist[deckNumber])
         {
             return true;
         }

@@ -10,11 +10,14 @@
 
 namespace Bfdj {
     DeckModuleWindow::DeckModuleWindow(QWidget *parent, DeckModule *newDeck)
-            : QMainWindow(parent), m_deckModule(newDeck) {
-        if (m_deckModule == nullptr) {
+        : QMainWindow(parent), m_deckModule(newDeck)
+    {
+        if (m_deckModule == nullptr)
+        {
             std::cout << "Invalid deck was created." << std::endl;
         }
-        else {
+        else
+        {
             // Initialize
             InitDeckWindow();
 
@@ -23,12 +26,14 @@ namespace Bfdj {
         }
     }
 
-    void DeckModuleWindow::InitDeckWindow() {
+    void DeckModuleWindow::InitDeckWindow()
+    {
         setWindowTitle(QString::fromStdString(m_deckModule->GetName()));
         resize(600, 800);
     }
 
-    void DeckModuleWindow::InitDeckWindowLayout() {
+    void DeckModuleWindow::InitDeckWindowLayout()
+    {
         // Set grid layout.
         QWidget * widget = new QWidget(this);
         auto *gridLayout = new QGridLayout(widget);
@@ -36,9 +41,11 @@ namespace Bfdj {
         widget->setLayout(gridLayout);
 
         // set head box.
-        auto *headbox = new QGroupBox("Information:", widget);
-        gridLayout->addWidget(headbox, 0, 0);
+        auto *headBox = new QGroupBox("Information:", widget);
+        gridLayout->addWidget(headBox, 0, 0);
 
+        // need button box.
+        
         // Play Button
         auto *playButton = new QPushButton(QStringLiteral("Play"));
         gridLayout->addWidget(playButton, 3, 0);
