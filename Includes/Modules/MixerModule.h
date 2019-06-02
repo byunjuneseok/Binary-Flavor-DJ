@@ -8,6 +8,7 @@
 #include <string>
 
 #include <Modules/Module.h>
+#include <Modules/MixerChannelModule.h>
 #include <Modules/DeckModule.h>
 
 
@@ -18,6 +19,14 @@ namespace Bfdj
     public:
         MixerModule() = default;
         ~MixerModule() override = default;
+
+        bool AssignDeck(int deckNumber, Bfdj::DeckModule* deckToAssign);
+
+        // utils
+        static bool ValidateDeckNumber(int testNumber);
+
+    protected:
+        Bfdj::MixerChannelModule* m_channelModules[4] = {nullptr};
 
     };
 }

@@ -18,7 +18,7 @@ include_directories(
 
 add_executable(${CMAKE_PROJECT_NAME}
         ${common_sources}
-        Track/Analyzer.cpp ../Includes/Track/MetaData.h Track/MetaData.cpp)
+        Track/Analyzer.cpp ../Includes/Track/MetaData.h Track/MetaData.cpp ../Includes/Modules/MixerChannelModule.h Modules/MixerChannelModule.cpp)
 
 target_link_libraries(${CMAKE_PROJECT_NAME}
         Qt5::Widgets
