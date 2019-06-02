@@ -15,7 +15,7 @@ namespace Bfdj
     {
         Q_OBJECT
     public:
-        explicit DeckModuleWindow(QWidget *parent, DeckModule *newDeck);
+        explicit DeckModuleWindow(QWidget *parent, DeckModule *parentDeckModule);
 
         void InitDeckWindow();
         void InitDeckWindowLayout();
@@ -24,7 +24,7 @@ namespace Bfdj
         void Cue();
 
     private:
-        Bfdj::DeckModule* const m_deckModule = nullptr;
+        Bfdj::DeckModule* const m_parentDeckModule = nullptr;
     };
 }
 

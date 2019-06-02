@@ -5,29 +5,36 @@
 #ifndef BINARY_FLAVOR_DJ_HUB_H
 #define BINARY_FLAVOR_DJ_HUB_H
 
+#include <QtWidgets/QMainWindow>
+
 #include <Modules/MixerModule.h>
 #include <Modules/DeckModule.h>
-#include <QtWidgets/QMainWindow>
+
+#include <ModuleWindows/HubWindow.h>
+
 
 namespace Bfdj
 {
-    class Hub : public QMainWindow
+    class Hub : public Module
     {
-        Q_OBJECT
     public:
-        explicit Hub(QWidget* parent = nullptr);
+        Hub();
+        ~Hub() = default;
 
         bool AssignMixer(Bfdj::MixerModule& newMixer);
 
-        bool AssignDeck(int deckNumber, Bfdj::DeckModule& newDeck);
+        bool AssignDeck(int deckNumber, Bfdj::DeckModule* newDeck);
 
-        bool CheckDeckState(int deckNumber) const;
+        bool CheckDeckState() const;
 
         void PrintState() const;
 
     protected:
         Bfdj::DeckModule* m_decklist[4] = {nullptr};
         Bfdj::MixerModule* m_mixer = nullptr;
+
+    private:
+        Bfdj::HubWindow* m_WindowObject;
     };
 }
 

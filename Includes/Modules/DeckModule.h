@@ -6,8 +6,10 @@
 #define BINARY_FLAVOR_DJ_DECKMODULE_H
 
 #include <Modules/Module.h>
+
 #include <Track/MetaData.h>
 #include <Track/Analyzer.h>
+
 #include <string>
 
 namespace Bfdj

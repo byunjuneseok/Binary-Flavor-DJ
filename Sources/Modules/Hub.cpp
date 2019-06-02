@@ -4,26 +4,14 @@
 #include <iostream>
 #include <Modules/Hub.h>
 #include <QtWidgets>
+#include <ModuleWindows/HubWindow.h>
 
 namespace Bfdj
 {
-    Hub::Hub(QWidget *parent)
-        :QMainWindow(parent)
+    Hub::Hub()
     {
-        this->setWindowTitle(QStringLiteral("Binaryflavor DJ HUB"));
-        this->resize(800, 500);
-
-        auto place = new QWidget;
-        auto layout = new QGridLayout;
-
-        setCentralWidget(place);
-        place->setLayout(layout);
-
-        auto but = new QPushButton(QStringLiteral("irrigate virtual devices"));
-        connect(but, &QPushButton::clicked, this, &Hub::PrintState);
-
-        layout->addWidget(but);
-
+        m_WindowObject = new HubWindow(nullptr);
+        m_WindowObject->show();
     }
 
     bool Hub::AssignMixer(Bfdj::MixerModule& newMixer)
@@ -39,28 +27,55 @@ namespace Bfdj
         }
     }
 
-    bool Hub::AssignDeck(int deckNumber, Bfdj::DeckModule& newDeck)
+    bool Hub::AssignDeck(int deckNumber, Bfdj::DeckModule* newDeck)
     {
-        if (m_decklist[deckNumber - 1])
+        if (m_decklist[deckNumber])
         {
             return false;
         }
         else
         {
-            this->m_decklist[deckNumber - 1] = &newDeck;
+            this->m_decklist[deckNumber] = newDeck;
             return true;
         }
     }
 
-    bool Hub::CheckDeckState(int deckNumber) const {
-        if (m_decklist[deckNumber])
+    bool Hub::CheckDeckState() const {
+        int failFlag = 0;
+
+        for (int i = 0; i < 4; i++)
         {
-            return true;
+            if (m_decklist[i] == nullptr)
+            {
+                if (m_decklist[i] == nullptr)
+                {
+                    std::cout << "Deck number " << i << ": identified! (nullptr)" << std::endl;
+                }
+                else
+                {
+                    std::cout << "Deck number " << i << ": failed to sync!" << std::endl;
+                    failFlag++;
+                }
+            }
+            else if (m_mixer->GetChannelModulePointer(i) == nullptr)
+            {
+                std::cout << "Deck number " << i << ": failed to sync!" << std::endl;
+                failFlag++;
+            }
+            else
+            {
+                if (m_decklist[i] != m_mixer->GetChannelModulePointer(i)->GetParentDeckPointer())
+                {
+                    std::cout << "Deck number " << i << ": failed to sync!" << std::endl;
+                    failFlag++;
+                }
+                else
+                {
+                    std::cout << "Deck number " << i << ": identified!" << std::endl;
+                }
+            }
         }
-        else
-        {
-            return false;
-        }
+        return failFlag;
     }
 
     void Hub::PrintState() const

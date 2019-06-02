@@ -26,3 +26,6 @@ namespace Bfdj
 }
 
 #endif //BINARYFLAVORDJ_ANALYZER_H
+
+// deck -> MixerCh -> Mixer -> Hub
+// deck -> Hub

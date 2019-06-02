@@ -9,12 +9,12 @@
 
 namespace Bfdj
 {
-    class MixerChannelModule
+    class MixerChannelModule : public Module
     {
     public:
-        MixerChannelModule(Bfdj::DeckModule* parentDeck);
+        explicit MixerChannelModule(Bfdj::DeckModule* parentDeck);
 
-        ~MixerChannelModule() = default;
+        ~MixerChannelModule() override = default;
 
         void SetVolumeFaderValue(float value);
         void SetTrimKnobValue(float value);
@@ -23,6 +23,7 @@ namespace Bfdj
         void SetEQLowKnobValue(float value);
 
         void LimitValue(float value);
+        Bfdj::DeckModule* GetParentDeckPointer() const;
 
     protected:
         float mVolumeFaderValue = 0;

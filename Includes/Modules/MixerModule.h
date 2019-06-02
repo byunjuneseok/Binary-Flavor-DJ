@@ -25,7 +25,9 @@ namespace Bfdj
         // utils
         static bool ValidateDeckNumber(int testNumber);
 
-    protected:
+        Bfdj::MixerChannelModule* GetChannelModulePointer(int deckNumber) const;
+
+    private:
         Bfdj::MixerChannelModule* m_channelModules[4] = {nullptr};
 
     };

@@ -11,4 +11,10 @@ namespace Bfdj
     {
 
     }
+
+    Bfdj::DeckModule* MixerChannelModule::GetParentDeckPointer() const
+    {
+        return m_parentDeck;
+    }
+
 }

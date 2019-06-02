@@ -10,9 +10,9 @@
 
 namespace Bfdj {
     DeckModuleWindow::DeckModuleWindow(QWidget *parent, DeckModule *newDeck)
-        : QMainWindow(parent), m_deckModule(newDeck)
+        : QMainWindow(parent), m_parentDeckModule(newDeck)
     {
-        if (m_deckModule == nullptr)
+        if (m_parentDeckModule == nullptr)
         {
             std::cout << "Invalid deck was created." << std::endl;
         }
@@ -28,14 +28,14 @@ namespace Bfdj {
 
     void DeckModuleWindow::InitDeckWindow()
     {
-        setWindowTitle(QString::fromStdString(m_deckModule->GetName()));
+        setWindowTitle(QString::fromStdString(m_parentDeckModule->GetName()));
         resize(600, 800);
     }
 
     void DeckModuleWindow::InitDeckWindowLayout()
     {
         // Set grid layout.
-        QWidget * widget = new QWidget(this);
+        QWidget* widget = new QWidget(this);
         auto *gridLayout = new QGridLayout(widget);
         setCentralWidget(widget);
         widget->setLayout(gridLayout);
@@ -59,11 +59,11 @@ namespace Bfdj {
 
     void DeckModuleWindow::Play()
     {
-        m_deckModule->Play();
+        m_parentDeckModule->Play();
     }
 
     void DeckModuleWindow::Cue()
     {
-        m_deckModule->Cue();
+        m_parentDeckModule->Cue();
     }
 }
