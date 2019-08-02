@@ -9,26 +9,21 @@
 #include <iostream>
 
 namespace Bfdj {
-    DeckModuleWindow::DeckModuleWindow(QWidget *parent, DeckModule *newDeck)
-        : QMainWindow(parent), m_parentDeckModule(newDeck)
+    DeckModuleWindow::DeckModuleWindow(QWidget *parent)
+        : QMainWindow(parent)
     {
-        if (m_parentDeckModule == nullptr)
-        {
-            std::cout << "Invalid deck was created." << std::endl;
-        }
-        else
-        {
-            // Initialize
-            InitDeckWindow();
 
-            // Initialize layout.
-            InitDeckWindowLayout();
-        }
+        // Initialize
+        InitDeckWindow();
+
+        // Initialize layout.
+        InitDeckWindowLayout();
+
     }
 
     void DeckModuleWindow::InitDeckWindow()
     {
-        setWindowTitle(QString::fromStdString(m_parentDeckModule->GetName()));
+        setWindowTitle(QString::fromStdString("DECK"));
         resize(600, 800);
     }
 

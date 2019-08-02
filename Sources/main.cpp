@@ -38,8 +38,8 @@ int main(int argc, char *argv[])
     mainHub.CheckDeckState();
 
     // test DeckModule & DeckModuleWindow
-    Bfdj::DeckModuleWindow testDeckWindow(nullptr ,&deck1);
-    testDeckWindow.show();
+    // Bfdj::DeckModuleWindow testDeckWindow(nullptr ,&deck1);
+    // testDeckWindow.show();
 
     return app.exec();
 }

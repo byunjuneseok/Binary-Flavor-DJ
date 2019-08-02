@@ -18,12 +18,13 @@ namespace Bfdj
         // Initialize layout.
         InitDeckWindowLayout();
 
+
     }
 
     void HubWindow::InitDeckWindow()
     {
         setWindowTitle(QString::fromStdString("Hub"));
-        resize(600, 800);
+        resize(600, 400);
     }
 
     void HubWindow::InitDeckWindowLayout()
@@ -33,9 +34,11 @@ namespace Bfdj
         setCentralWidget(widget);
         widget->setLayout(gridLayout);
 
-        auto *headBox = new QGroupBox("Information:", widget);
-        gridLayout->addWidget(headBox, 0, 0);
+        auto *stateText = new QLabel("State", nullptr);
+        gridLayout->addWidget(stateText, 0, 0);
+
+        auto *playButton = new QPushButton(QStringLiteral("Check sync."));
+        gridLayout->addWidget(playButton, 3, 0);
 
     }
-
 }
