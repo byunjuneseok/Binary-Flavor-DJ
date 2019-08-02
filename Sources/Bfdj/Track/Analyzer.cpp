@@ -9,7 +9,6 @@ namespace Bfdj
     Analyzer::Analyzer()
     {
         // To do...
-
     }
 
     Analyzer::~Analyzer()

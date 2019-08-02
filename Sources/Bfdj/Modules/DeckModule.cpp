@@ -21,6 +21,11 @@ namespace Bfdj
         }
     }
 
+    int DeckModule::GetDeckNumber()
+    {
+        return m_DeckNumber;
+    }
+
     void DeckModule::Play()
     {
         if (playState)

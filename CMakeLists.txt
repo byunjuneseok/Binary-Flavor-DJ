@@ -13,11 +13,13 @@ set(CMAKE_AUTOMOC ON)
 find_package(Qt5Widgets CONFIG REQUIRED)
 find_package(Qt5Test REQUIRED)
 
-include_directories(Includes)
+include_directories(Includes/Bfdj)
 include_directories(Libraries)
+include_directories(Libraries/googletest/googletest/include)
 
 # Add subdirectory
 add_subdirectory(Sources)
+add_subdirectory(Tests)
+add_subdirectory(Libraries/googletest)
 
 # Add libraries
-# add_subdirectory(Libraries/libnyquist)

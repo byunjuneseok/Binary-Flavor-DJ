@@ -8,6 +8,6 @@ namespace Bfdj
 {
     bool MetaData::ReadMetaData(std::string &filePath)
     {
-        // to-do
+        return true;
     }
 }
