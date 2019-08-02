@@ -22,11 +22,13 @@ namespace Bfdj
 
         bool loadTrack(std::string &filePath);
 
+        int GetDeckNumber();
+
         void Play();
         void Cue();
 
     protected:
-        int m_deck_number = 0;
+        int m_DeckNumber = 0;
 
     private:
         bool playState = false;
