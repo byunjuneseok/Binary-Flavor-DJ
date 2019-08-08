@@ -12,8 +12,6 @@ matrix:
           packages:
             - gcc-4.9
             - g++-4.9
-      script:
-        - sh Scripts/travis_build.sh
 
     - os: linux
       dist: trusty
@@ -25,8 +23,6 @@ matrix:
           packages:
             - gcc-4.9
             - g++-4.9
-      script:
-        - sh Scripts/travis_build.sh
 
     - os: linux
       dist: trusty
@@ -38,8 +34,6 @@ matrix:
           packages:
             - gcc-5
             - g++-5
-      script:
-        - sh Scripts/travis_build.sh
 
     - os: linux
       dist: trusty
@@ -51,8 +45,6 @@ matrix:
           packages:
             - gcc-8
             - g++-8
-      script:
-        - sh Scripts/travis_build.sh
 
     - os: linux
       dist: trusty
@@ -64,8 +56,6 @@ matrix:
           packages:
             - gcc-8
             - g++-8
-      script:
-        - sh Scripts/travis_build.sh
 
 before_install:
   - if [ "$QT_BASE" = "55"  ]; then sudo add-apt-repository ppa:beineri/opt-qt551-trusty -y; fi
@@ -82,3 +72,4 @@ install:
   - tar -xf cmake.tar.gz -C /opt/cmake --strip-components=1
   - rm -f cmake.tar.gz
   - export PATH=/opt/cmake/bin:${PATH}
+  - pwd
