@@ -73,8 +73,5 @@ install:
   - rm -f cmake.tar.gz
   - export PATH=/opt/cmake/bin:${PATH}
 
-
 script:
-- mkdir -p build
-- cd build
-- cmake ..
+- Scripts/Travisci_codecov.sh
