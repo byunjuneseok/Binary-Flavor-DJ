@@ -21,5 +21,5 @@ add_library(${target}
 
 target_link_libraries(${target}
         Qt5::Widgets
-        # libnyquist
+        portaudio
         )
