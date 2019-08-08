@@ -49,6 +49,10 @@ install:
   - export PATH=/opt/cmake/bin:${PATH}
 
 script:
+  - export CXX=g++-7
+  - export CXX_FOR_BUILD=g++-7
+  - export CC=gcc-7
+  - export CC_FOR_BUILD=gcc-7
   - mkdir build
   - cd build
   - cmake ..
