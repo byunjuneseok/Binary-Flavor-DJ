@@ -6,7 +6,6 @@
 #include <Modules/DeckModule.hpp>
 #include <Modules/MixerModule.hpp>
 
-
 using namespace Bfdj;
 
 TEST(HubModule, Connection)
