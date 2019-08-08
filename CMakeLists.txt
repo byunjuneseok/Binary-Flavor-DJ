@@ -31,4 +31,3 @@ add_subdirectory(Sources/Bfdj)
 add_subdirectory(Tests/UnitTests)
 add_subdirectory(Libraries/googletest)
 add_subdirectory(Extensions/BfdjGUI)
-
