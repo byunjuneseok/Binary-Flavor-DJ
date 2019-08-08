@@ -32,11 +32,6 @@ int main(int argc, char *argv[])
 
     mainMixer.SetName("Changed Mixer Name");
 
-    mainHub.AssignDeck(1, &deck1);
-    mainMixer.AssignDeck(1, &deck1);
-    mainHub.AssignDeck(3, &deck2);
-    mainMixer.AssignDeck(3, &deck2);
-
     mainHub.PrintState();
 
     mainHub.CheckDeckState();

@@ -14,7 +14,7 @@ include_directories(
 # Build executable
 add_executable(${target}
         ${test_sources}
-        )
+        ModuleTests/HubTests.cpp)
 
 
 # Link libraries

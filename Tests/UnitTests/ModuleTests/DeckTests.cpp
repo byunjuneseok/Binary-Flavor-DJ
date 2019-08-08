@@ -11,11 +11,12 @@ TEST(DeckModule, Constructors)
 {
     DeckModule deck1;
     EXPECT_EQ(0, deck1.GetDeckNumber());
-    // EXPECT_EQ(deck1.GetDeckNumber(), 0);
 }
 
 TEST(DeckBasicFeatures, BasicFeatures)
 {
+    DeckModule deck1, deck2;
+
     EXPECT_EQ(0, 0);
 }
 
