@@ -4,58 +4,25 @@ matrix:
   include:
     - os: linux
       dist: trusty
-      env: QT_BASE=55 CXX_COMPILER=g++-4.9 C_COMPILER=gcc-4.9 BUILD_TYPE=Debug
+      env: QT_BASE=55 CXX_COMPILER=g++-7 C_COMPILER=gcc-7 BUILD_TYPE=Release
       addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - gcc-4.9
-            - g++-4.9
+            - gcc-7
+            - g++-7
 
     - os: linux
       dist: trusty
-      env: QT_BASE=55 CXX_COMPILER=g++-4.9 C_COMPILER=gcc-4.9 BUILD_TYPE=Release
+      env: QT_BASE=510 CXX_COMPILER=g++-7 C_COMPILER=gcc-7 BUILD_TYPE=Release
       addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - gcc-4.9
-            - g++-4.9
-
-    - os: linux
-      dist: trusty
-      env: QT_BASE=55 CXX_COMPILER=g++-5 C_COMPILER=gcc-5 BUILD_TYPE=Release
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-5
-            - g++-5
-
-    - os: linux
-      dist: trusty
-      env: QT_BASE=55 CXX_COMPILER=g++-8 C_COMPILER=gcc-8 BUILD_TYPE=Release
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-8
-            - g++-8
-
-    - os: linux
-      dist: trusty
-      env: QT_BASE=510 CXX_COMPILER=g++-8 C_COMPILER=gcc-8 BUILD_TYPE=Release
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-8
-            - g++-8
+            - gcc-7
+            - g++-7
 
 before_install:
   - if [ "$QT_BASE" = "55"  ]; then sudo add-apt-repository ppa:beineri/opt-qt551-trusty -y; fi
@@ -74,4 +41,20 @@ install:
   - export PATH=/opt/cmake/bin:${PATH}
 
 script:
-- Scripts/Travisci_codecov.sh
+  - set -e
+
+  - export TRAVIS_COMPILER=g++-7
+  - export CXX=g++-7
+  - export CXX_FOR_BUILD=g++-7
+  - export CC=gcc-7
+  - export CC_FOR_BUILD=gcc-7
+  - export NUM_JOBS=1
+
+  - sudo apt-get install -yq gcovr ggcov lcov curl
+
+  - mkdir build
+  - cd build
+  - cmake .. -DCMAKE_BUILD_TYPE=Debug -DBUILD_COVERAGE=ON
+
+  - make UnitTests
+  - bin/UnitTests
