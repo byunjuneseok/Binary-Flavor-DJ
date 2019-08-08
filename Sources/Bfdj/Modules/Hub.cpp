@@ -2,9 +2,9 @@
 // Created by Juneseok Byun on 2019-05-12.
 //
 #include <iostream>
-#include <Modules/Hub.h>
+#include <Modules/Hub.hpp>
 #include <QtWidgets>
-#include <ModuleWindows/HubWindow.h>
+#include <ModuleWindows/HubWindow.hpp>
 
 namespace Bfdj
 {

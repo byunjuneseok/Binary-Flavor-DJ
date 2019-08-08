@@ -1,7 +1,11 @@
+//
+// Created by Juneseok Byun on 2019-08-08.
+//
+
 #include <iostream>
 #include <string>
-#include <Modules/Hub.h>
-#include <ModuleWindows/DeckModuleWindow.h>
+#include <Modules/Hub.hpp>
+#include <ModuleWindows/DeckModuleWindow.hpp>
 #include <QApplication>
 #include <QWidget>
 
@@ -27,7 +31,7 @@ int main(int argc, char *argv[])
     std::cout << "Assign deck." << std::endl;
 
     mainMixer.SetName("Changed Mixer Name");
-    
+
     mainHub.AssignDeck(1, &deck1);
     mainMixer.AssignDeck(1, &deck1);
     mainHub.AssignDeck(3, &deck2);

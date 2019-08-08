@@ -2,10 +2,10 @@
 // Created by Juneseok Byun on 2019-06-02.
 //
 
-#ifndef BINARYFLAVORDJ_MIXERCHANNELMODULE_H
-#define BINARYFLAVORDJ_MIXERCHANNELMODULE_H
+#ifndef BINARYFLAVORDJ_MIXERCHANNELMODULE_HPP
+#define BINARYFLAVORDJ_MIXERCHANNELMODULE_HPP
 
-#include <Modules/DeckModule.h>
+#include <Modules/DeckModule.hpp>
 
 namespace Bfdj
 {
