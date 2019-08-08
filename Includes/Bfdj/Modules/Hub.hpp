@@ -18,12 +18,12 @@ namespace Bfdj
     class Hub : public Module
     {
     public:
-        Hub();
+        Hub() = default;
         ~Hub() = default;
 
         bool AssignMixer(Bfdj::MixerModule& newMixer);
 
-        bool AssignDeck(int deckNumber, Bfdj::DeckModule* newDeck);
+        bool AssignDeck(int deckNumber, Bfdj::DeckModule& newDeck);
 
         bool CheckDeckState() const;
 
@@ -34,7 +34,7 @@ namespace Bfdj
         Bfdj::MixerModule* m_mixer = nullptr;
 
     private:
-        Bfdj::HubWindow* m_WindowObject;
+        // Bfdj::HubWindow* m_WindowObject;
     };
 }
 
