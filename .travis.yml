@@ -30,7 +30,7 @@ matrix:
         sonarcloud:
           organization: "byunjuneseok"
           token:
-            secure: "a248b8a04de983d8b69fb2d5c4c58472fc5b5241"
+            secure: "2c490a1e7fdba3e351dd725a353c039854ede51b"
 
 before_install:
   - if [ "$QT_BASE" = "55"  ]; then sudo add-apt-repository ppa:beineri/opt-qt551-trusty -y; fi
