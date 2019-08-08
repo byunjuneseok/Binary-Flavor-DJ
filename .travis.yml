@@ -75,6 +75,4 @@ install:
 
 
 script:
-- mkdir -p build
-- cd build
-- cmake ..
+- Scripts/Travisci_codecov.sh
