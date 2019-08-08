@@ -8,11 +8,6 @@
 
 namespace Bfdj
 {
-    Hub::Hub()
-    {
-        m_WindowObject = new HubWindow(nullptr);
-        m_WindowObject->show();
-    }
 
     bool Hub::AssignMixer(Bfdj::MixerModule& newMixer)
     {
@@ -27,7 +22,7 @@ namespace Bfdj
         }
     }
 
-    bool Hub::AssignDeck(int deckNumber, Bfdj::DeckModule* newDeck)
+    bool Hub::AssignDeck(int deckNumber, Bfdj::DeckModule& newDeck)
     {
         if (m_decklist[deckNumber])
         {
@@ -35,7 +30,7 @@ namespace Bfdj
         }
         else
         {
-            this->m_decklist[deckNumber] = newDeck;
+            this->m_decklist[deckNumber] = &newDeck;
             return true;
         }
     }
