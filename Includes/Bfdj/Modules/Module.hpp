@@ -6,8 +6,8 @@
 // Created by Juneseok Byun on 2019-05-13.
 //
 
-#ifndef BINARYFLAVORDJ_MODULE_H
-#define BINARYFLAVORDJ_MODULE_H
+#ifndef BINARYFLAVORDJ_MODULE_HPP
+#define BINARYFLAVORDJ_MODULE_HPP
 
 #include <string>
 

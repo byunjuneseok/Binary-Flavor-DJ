@@ -2,8 +2,8 @@
 // Created by Juneseok Byun on 2019-05-27.
 //
 
-#ifndef BINARYFLAVORDJ_ANALYZER_H
-#define BINARYFLAVORDJ_ANALYZER_H
+#ifndef BINARYFLAVORDJ_ANALYZER_HPP
+#define BINARYFLAVORDJ_ANALYZER_HPP
 
 #include <string>
 
@@ -12,8 +12,8 @@ namespace Bfdj
     class Analyzer
     {
     public:
-        Analyzer();
-        ~Analyzer();
+        Analyzer()=default;
+        ~Analyzer()=default;
 
         void ReadMetaData();
         void Analyze();

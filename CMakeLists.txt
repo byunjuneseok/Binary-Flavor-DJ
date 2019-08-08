@@ -4,8 +4,10 @@ project(Binaryflavordj)
 
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 # Instruct CMake to run moc automatically when needed
 set(CMAKE_AUTOMOC ON)
+
 # Create code from a list of Qt designer ui files
 # set(CMAKE_AUTOUIC ON)
 
@@ -13,11 +15,14 @@ set(CMAKE_AUTOMOC ON)
 find_package(Qt5Widgets CONFIG REQUIRED)
 find_package(Qt5Test REQUIRED)
 
-include_directories(Includes)
+
+include_directories(Includes/Bfdj)
 include_directories(Libraries)
+include_directories(Libraries/googletest/googletest/include)
 
 # Add subdirectory
-add_subdirectory(Sources)
+add_subdirectory(Sources/Bfdj)
+add_subdirectory(Tests/UnitTests)
+add_subdirectory(Libraries/googletest)
+add_subdirectory(Extensions/BfdjGUI)
 
-# Add libraries
-# add_subdirectory(Libraries/libnyquist)

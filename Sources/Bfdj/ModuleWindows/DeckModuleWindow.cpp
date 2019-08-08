@@ -2,8 +2,8 @@
 // Created by Juneseok Byun on 2019-05-26.
 //
 
-#include <Modules/DeckModule.h>
-#include <ModuleWindows/DeckModuleWindow.h>
+#include <Modules/DeckModule.hpp>
+#include <ModuleWindows/DeckModuleWindow.hpp>
 #include <QtWidgets>
 #include <string>
 #include <iostream>

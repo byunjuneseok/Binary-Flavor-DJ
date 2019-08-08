@@ -1,7 +1,7 @@
 //
 // Created by Juneseok Byun on 2019-05-13.
 //
-#include <Modules/DeckModule.h>
+#include <Modules/DeckModule.hpp>
 #include <iostream>
 #include <string>
 
@@ -19,6 +19,11 @@ namespace Bfdj
             m_Analyzer->Analyze();
             return true;
         }
+    }
+
+    int DeckModule::GetDeckNumber()
+    {
+        return m_DeckNumber;
     }
 
     void DeckModule::Play()

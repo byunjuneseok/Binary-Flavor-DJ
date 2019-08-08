@@ -2,8 +2,8 @@
 // Created by Juneseok Byun on 2019-06-02.
 //
 
-#ifndef BINARYFLAVORDJ_HUBWINDOW_H
-#define BINARYFLAVORDJ_HUBWINDOW_H
+#ifndef BINARYFLAVORDJ_HUBWINDOW_HPP
+#define BINARYFLAVORDJ_HUBWINDOW_HPP
 
 #include <string>
 #include <QtWidgets>

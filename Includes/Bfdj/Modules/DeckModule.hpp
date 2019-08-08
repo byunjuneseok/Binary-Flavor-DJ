@@ -2,13 +2,13 @@
 // Created by Juneseok Byun on 2019-05-10.
 //
 
-#ifndef BINARY_FLAVOR_DJ_DECKMODULE_H
-#define BINARY_FLAVOR_DJ_DECKMODULE_H
+#ifndef BINARY_FLAVOR_DJ_DECKMODULE_HPP
+#define BINARY_FLAVOR_DJ_DECKMODULE_HPP
 
-#include <Modules/Module.h>
+#include <Modules/Module.hpp>
 
-#include <Track/MetaData.h>
-#include <Track/Analyzer.h>
+#include <Track/MetaData.hpp>
+#include <Track/Analyzer.hpp>
 
 #include <string>
 
@@ -22,11 +22,13 @@ namespace Bfdj
 
         bool loadTrack(std::string &filePath);
 
+        int GetDeckNumber();
+
         void Play();
         void Cue();
 
     protected:
-        int m_deck_number = 0;
+        int m_DeckNumber = 0;
 
     private:
         bool playState = false;
