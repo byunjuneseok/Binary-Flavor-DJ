@@ -17,7 +17,7 @@ include_directories(
 
 add_library(${target}
         ${common_sources}
-        ../../Extensions/BfdjGUI/main.cpp)
+        )
 
 target_link_libraries(${target}
         Qt5::Widgets
