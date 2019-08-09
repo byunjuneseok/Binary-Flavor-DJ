@@ -1,0 +1,8 @@
+//
+// Created by Juneseok Byun on 2019-08-09.
+//
+
+#ifndef BINARYFLAVORDJ_WORKSPACES_H
+#define BINARYFLAVORDJ_WORKSPACES_H
+
+#endif //BINARYFLAVORDJ_WORKSPACES_H
