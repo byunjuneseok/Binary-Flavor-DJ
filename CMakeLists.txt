@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.1.0)
 
 project(Binaryflavordj)
 
+# Compile options
+include(Scripts/CompileOptions.cmake)
+
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -21,7 +24,6 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 find_package(Qt5Widgets CONFIG REQUIRED)
 find_package(Qt5Test REQUIRED)
 
-
 include_directories(Includes/Bfdj)
 include_directories(Libraries)
 include_directories(Libraries/googletest/googletest/include)
@@ -29,6 +31,9 @@ include_directories(Libraries/googletest/googletest/include)
 # Add subdirectory
 add_subdirectory(Sources/Bfdj)
 add_subdirectory(Tests/UnitTests)
-add_subdirectory(Libraries/googletest)
-add_subdirectory(Libraries/portaudio)
 add_subdirectory(Extensions/BfdjGUI)
+
+add_subdirectory(Libraries/googletest)
+
+add_subdirectory(Libraries/portaudio)
+

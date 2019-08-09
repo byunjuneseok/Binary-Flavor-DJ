@@ -22,10 +22,11 @@ file(GLOB_RECURSE portaudio_cpp_bindings_common_sources
         ${portaudio_cpp_bindings_sources}
         )
 
+
 # Includes
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_SOURCE_DIR}}/Libraries
+        ${CMAKE_SOURCE_DIR}/Libraries
         ${CMAKE_SOURCE_DIR}/Libraries/portaudio/bindings/cpp/include
 )
 
@@ -35,6 +36,7 @@ add_library(${target}
         )
 
 target_link_libraries(${target}
+        ${EASTL_LIBRARY}
         Qt5::Widgets
         portaudio
         )
