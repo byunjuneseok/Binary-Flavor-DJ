@@ -20,7 +20,7 @@ namespace Bfdj
 
 
     private:
-        const std::string* m_FilePath = nullptr;
+        const std::string* filePath = nullptr;
 
     };
 }

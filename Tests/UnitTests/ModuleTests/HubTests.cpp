@@ -11,12 +11,21 @@ using namespace Bfdj;
 TEST(HubModule, Connection)
 {
     Hub testHub;
-    DeckModule deck1, deck2, deck3, deck4;
-    MixerModule testMixer;
+    EXPECT_EQ(testHub.GetMixer(), nullptr);
 
-    testHub.AssignMixer(testMixer);
-    testHub.AssignDeck(1, deck1);
+    testHub.CreateMixer();
+    testHub.CreateDeck(1);
+    EXPECT_NE(testHub.GetMixer(), nullptr);
+    EXPECT_NE(testHub.GetDeck(1), nullptr);
+    EXPECT_EQ(testHub.GetDeck(2), nullptr);
+    EXPECT_EQ(testHub.GetDeck(3), nullptr);
+    EXPECT_EQ(testHub.GetDeck(4), nullptr);
 
-    EXPECT_EQ(0, deck1.GetDeckNumber());
+    testHub.CreateDeck(3);
+    EXPECT_NE(testHub.GetMixer(), nullptr);
+    EXPECT_NE(testHub.GetDeck(1), nullptr);
+    EXPECT_EQ(testHub.GetDeck(2), nullptr);
+    EXPECT_NE(testHub.GetDeck(3), nullptr);
+    EXPECT_EQ(testHub.GetDeck(4), nullptr);
 
 }

@@ -23,7 +23,7 @@ namespace Bfdj
 
     int DeckModule::GetDeckNumber()
     {
-        return m_DeckNumber;
+        return deckNumber;
     }
 
     void DeckModule::Play()

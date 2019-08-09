@@ -28,7 +28,7 @@ namespace Bfdj
         void Cue();
 
     protected:
-        int m_DeckNumber = 0;
+        int deckNumber = 0;
 
     private:
         bool playState = false;

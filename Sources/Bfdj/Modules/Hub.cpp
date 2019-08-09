@@ -3,46 +3,88 @@
 //
 #include <iostream>
 #include <Modules/Hub.hpp>
+#include <Modules/MixerModule.hpp>
+#include <Modules/DeckModule.hpp>
 #include <QtWidgets>
 #include <ModuleWindows/HubWindow.hpp>
 
 namespace Bfdj
 {
 
+    bool Hub::CreateMixer()
+    {
+        mixer = new MixerModule;
+        return mixer != nullptr;
+    }
+
+    bool Hub::CreateDeck(int deckNumber)
+    {
+        if(ValidateDeckNumber(deckNumber))
+        {
+            decklist[deckNumber] = new DeckModule;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    bool Hub::DetachMixer()
+    {
+        return mixer = nullptr;
+    }
+
+    bool Hub::DetachDeck(int deckNumber)
+    {
+        return decklist[deckNumber] = nullptr;
+    }
+
     bool Hub::AssignMixer(Bfdj::MixerModule& newMixer)
     {
-        if (this->m_mixer)
+        if (mixer)
         {
             return false;
         }
         else
         {
-            m_mixer = &newMixer;
+            mixer = &newMixer;
             return true;
         }
     }
 
     bool Hub::AssignDeck(int deckNumber, Bfdj::DeckModule& newDeck)
     {
-        if (m_decklist[deckNumber])
+        if (decklist[deckNumber])
         {
             return false;
         }
         else
         {
-            this->m_decklist[deckNumber] = &newDeck;
+            this->decklist[deckNumber] = &newDeck;
             return true;
         }
     }
 
-    bool Hub::CheckDeckState() const {
+    MixerModule* Hub::GetMixer() const
+    {
+        return mixer;
+    }
+
+    DeckModule* Hub::GetDeck(int deckNumber) const
+    {
+        return decklist[deckNumber];
+    }
+
+    bool Hub::CheckDeckState() const
+    {
         int failFlag = 0;
 
         for (int i = 0; i < 4; i++)
         {
-            if (m_decklist[i] == nullptr)
+            if (decklist[i] == nullptr)
             {
-                if (m_decklist[i] == nullptr)
+                if (decklist[i] == nullptr)
                 {
                     std::cout << "Deck number " << i << ": identified! (nullptr)" << std::endl;
                 }
@@ -52,14 +94,14 @@ namespace Bfdj
                     failFlag++;
                 }
             }
-            else if (m_mixer->GetChannelModulePointer(i) == nullptr)
+            else if (mixer->GetChannelModulePointer(i) == nullptr)
             {
                 std::cout << "Deck number " << i << ": failed to sync!" << std::endl;
                 failFlag++;
             }
             else
             {
-                if (m_decklist[i] != m_mixer->GetChannelModulePointer(i)->GetParentDeckPointer())
+                if (decklist[i] != mixer->GetChannelModulePointer(i)->GetParentDeckPointer())
                 {
                     std::cout << "Deck number " << i << ": failed to sync!" << std::endl;
                     failFlag++;
@@ -75,9 +117,9 @@ namespace Bfdj
 
     void Hub::PrintState() const
     {
-        if (this->m_mixer)
+        if (this->mixer)
         {
-            std::cout << "Mixer Name : " << m_mixer->GetName() << std::endl;
+            std::cout << "Mixer Name : " << mixer->GetName() << std::endl;
         }
         else
         {
@@ -85,10 +127,10 @@ namespace Bfdj
         }
         for (int i = 0; i < 4; i++)
         {
-            if (this->m_decklist[i])
+            if (this->decklist[i])
             {
-                std::cout << "DECK #" << i + 1 <<  ": " <<
-                this->m_decklist[i]->GetName() << std::endl;
+                std::cout << "DECK #" << i + 1 << ": " <<
+                          this->decklist[i]->GetName() << std::endl;
             }
             else
             {
@@ -97,4 +139,14 @@ namespace Bfdj
         }
     }
 
+    bool Hub::ValidateDeckNumber(int deckNumber)
+    {
+        if (deckNumber > 0 && deckNumber <= 4)
+        {
+            return decklist[deckNumber] == nullptr;
+        }
+        else{
+            return false;
+        }
+    }
 }
