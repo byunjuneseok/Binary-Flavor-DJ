@@ -19,15 +19,17 @@ namespace Bfdj
         ~Workspace() = default;
 
         void CreateHub();
+        void CreateMixer();
+        void CreateDeck();
+
         void AddDeckModule(DeckModule& deck);
 
+
     private:
-        // eastl::vector<int> P;
         std::vector<Hub*> HubsOnWorkspace;
         std::vector<MixerModule*> mixerModulesOnWorkspace;
         std::vector<DeckModule*> deckModulesOnWorkspace;
     };
 }
-
 
 #endif //BINARYFLAVORDJ_WORKSPACE_H

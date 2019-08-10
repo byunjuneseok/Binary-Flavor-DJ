@@ -7,8 +7,20 @@ namespace Bfdj
 {
     void Workspace::CreateHub()
     {
-        Hub* newHub = new Hub();
+        auto* newHub = new Hub();
         HubsOnWorkspace.push_back(newHub);
+    }
+
+    void Workspace::CreateMixer()
+    {
+        auto* newMixer = new MixerModule();
+        mixerModulesOnWorkspace.push_back(newMixer);
+    }
+
+    void Workspace::CreateDeck()
+    {
+        auto* newDeck = new DeckModule();
+        deckModulesOnWorkspace.push_back(newDeck);
     }
 
     void Workspace::AddDeckModule(Bfdj::DeckModule &deck)
