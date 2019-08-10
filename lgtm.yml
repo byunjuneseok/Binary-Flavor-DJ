@@ -1,0 +1,3 @@
+queries:
+  - exclude: Libraries/googletest
+  - exclude: Libraries/portaudio
