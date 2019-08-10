@@ -1,3 +1,6 @@
 [submodule "Libraries/googletest"]
 	path = Libraries/googletest
 	url = https://github.com/google/googletest.git
+[submodule "Libraries/portaudio"]
+	path = Libraries/portaudio
+	url = https://git.assembla.com/portaudio.git

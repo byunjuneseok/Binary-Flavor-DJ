@@ -21,17 +21,29 @@ namespace Bfdj
         Hub() = default;
         ~Hub() = default;
 
-        bool AssignMixer(Bfdj::MixerModule& newMixer);
+        bool CreateMixer();
+        bool CreateDeck(int deckNumber);
 
+        bool DetachMixer();
+        bool DetachDeck(int deckNumber);
+
+        bool AssignMixer(Bfdj::MixerModule& newMixer);
         bool AssignDeck(int deckNumber, Bfdj::DeckModule& newDeck);
 
-        bool CheckDeckState() const;
 
+        // getter
+        MixerModule* GetMixer() const;
+        DeckModule* GetDeck(int deckNumber) const;
+        bool CheckDeckState() const;
         void PrintState() const;
 
+        // utilities
+        bool ValidateDeckNumber(int deckNumber);
+
+
     protected:
-        Bfdj::DeckModule* m_decklist[4] = {nullptr};
-        Bfdj::MixerModule* m_mixer = nullptr;
+        Bfdj::DeckModule* decklist[5] = {nullptr};
+        Bfdj::MixerModule* mixer = nullptr;
 
     private:
         // Bfdj::HubWindow* m_WindowObject;

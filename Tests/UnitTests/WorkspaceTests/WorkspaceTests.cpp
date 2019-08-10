@@ -2,13 +2,14 @@
 // Created by Juneseok Byun on 2019-08-08.
 //
 #include <gtest/gtest.h>
+#include <Workspaces/Workspace.hpp>
 #include <Modules/Hub.hpp>
 #include <Modules/DeckModule.hpp>
 #include <Modules/MixerModule.hpp>
 
 using namespace Bfdj;
 
-TEST(HubModule, Connection)
+TEST(Workspace, Construction)
 {
     Hub testHub;
     EXPECT_EQ(testHub.GetMixer(), nullptr);
@@ -28,4 +29,9 @@ TEST(HubModule, Connection)
     EXPECT_NE(testHub.GetDeck(3), nullptr);
     EXPECT_EQ(testHub.GetDeck(4), nullptr);
 
+}
+
+TEST(Workspace, BasicFeatures)
+{
+    Workspace testWorkspace;
 }

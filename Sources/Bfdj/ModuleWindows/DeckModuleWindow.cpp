@@ -54,11 +54,11 @@ namespace Bfdj {
 
     void DeckModuleWindow::Play()
     {
-        m_parentDeckModule->Play();
+        parentDeckModule->Play();
     }
 
     void DeckModuleWindow::Cue()
     {
-        m_parentDeckModule->Cue();
+        parentDeckModule->Cue();
     }
 }

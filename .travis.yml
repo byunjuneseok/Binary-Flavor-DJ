@@ -59,6 +59,6 @@ script:
   - make UnitTests
 
 #  - build-wrapper-linux-x86-64 --out-dir bw-output make all
-#  - bin/UnitTests
+  - bin/UnitTests
 #  - cd ..
 #  - sonar-scanner
