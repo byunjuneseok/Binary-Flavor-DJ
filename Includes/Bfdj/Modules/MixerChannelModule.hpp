@@ -26,11 +26,11 @@ namespace Bfdj
         Bfdj::DeckModule* GetParentDeckPointer() const;
 
     protected:
-        float mVolumeFaderValue = 0;
-        float mTrimKnobValue = 50;
-        float mEQHighKnobValue = 50;
-        float mEQMidKnobValue = 50;
-        float mEQLowKnobValue = 50;
+        float volumeFaderValue = 0;
+        float trimKnobValue = 50;
+        float eqHighKnobValue = 50;
+        float eqMidKnobValue = 50;
+        float eqLowKnobValue = 50;
 
     private:
         Bfdj::DeckModule* m_parentDeck = nullptr;

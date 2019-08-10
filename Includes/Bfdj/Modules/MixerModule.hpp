@@ -28,7 +28,7 @@ namespace Bfdj
         Bfdj::MixerChannelModule* GetChannelModulePointer(int deckNumber) const;
 
     private:
-        Bfdj::MixerChannelModule* m_channelModules[4] = {nullptr};
+        Bfdj::MixerChannelModule* channelModules[5] = {nullptr};
 
     };
 }

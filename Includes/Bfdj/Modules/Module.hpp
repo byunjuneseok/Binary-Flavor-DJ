@@ -21,16 +21,16 @@ namespace Bfdj
 
         void SetName(std::string name)
         {
-            m_name = std::move(name);
+            name = std::move(name);
         }
 
         std::string GetName() const
         {
-            return m_name;
+            return name;
         }
 
     protected:
-        std::string m_name;
+        std::string name;
 
     };
 

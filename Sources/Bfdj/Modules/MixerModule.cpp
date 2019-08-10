@@ -13,13 +13,13 @@ namespace Bfdj
     {
         if(ValidateDeckNumber(deckNumber))
         {
-            if (m_channelModules[deckNumber])
+            if (channelModules[deckNumber])
             {
                 return false;
             }
             else
             {
-                m_channelModules[deckNumber] = new MixerChannelModule(DeckToAssign);
+                channelModules[deckNumber] = new MixerChannelModule(DeckToAssign);
                 return true;
             }
         }
@@ -36,6 +36,6 @@ namespace Bfdj
 
     Bfdj::MixerChannelModule* MixerModule::GetChannelModulePointer(int deckNumber) const
     {
-        return m_channelModules[deckNumber];
+        return channelModules[deckNumber];
     }
 }

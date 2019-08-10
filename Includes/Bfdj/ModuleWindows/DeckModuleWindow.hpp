@@ -24,7 +24,7 @@ namespace Bfdj
         void Cue();
 
     private:
-        DeckModule* m_parentDeckModule;
+        DeckModule* parentDeckModule;
     };
 }
 
