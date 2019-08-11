@@ -5,8 +5,6 @@
 #include <Modules/Hub.hpp>
 #include <Modules/MixerModule.hpp>
 #include <Modules/DeckModule.hpp>
-#include <QtWidgets>
-#include <ModuleWindows/HubWindow.hpp>
 
 namespace Bfdj
 {
