@@ -29,7 +29,7 @@ include_directories(Libraries)
 include_directories(Libraries/googletest/googletest/include)
 
 # Add subdirectory
-add_subdirectory(Sources/Bfdj)
+add_subdirectory(Sources)
 add_subdirectory(Tests/UnitTests)
 add_subdirectory(Extensions/BfdjGUI)
 
