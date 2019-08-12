@@ -10,9 +10,6 @@
 #include <Modules/MixerModule.hpp>
 #include <Modules/DeckModule.hpp>
 
-#include <ModuleWindows/HubWindow.hpp>
-
-
 namespace Bfdj
 {
     class Hub : public Module
@@ -46,7 +43,6 @@ namespace Bfdj
         Bfdj::MixerModule* mixer = nullptr;
 
     private:
-        // Bfdj::HubWindow* m_WindowObject;
     };
 }
 

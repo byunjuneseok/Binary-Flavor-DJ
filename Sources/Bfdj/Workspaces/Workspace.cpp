@@ -23,8 +23,18 @@ namespace Bfdj
         deckModulesOnWorkspace.push_back(newDeck);
     }
 
-    void Workspace::AddDeckModule(Bfdj::DeckModule &deck)
+    std::vector<Hub*> Workspace::GetHubsOnWorkspace() const
     {
-        deckModulesOnWorkspace.push_back(&deck);
+        return HubsOnWorkspace;
+    }
+
+    std::vector<MixerModule*> Workspace::GetMixerModulesOnWorkspace() const
+    {
+        return mixerModulesOnWorkspace;
+    }
+
+    std::vector<DeckModule*> Workspace::GetDeckModulesOnWorkspace() const
+    {
+        return deckModulesOnWorkspace;
     }
 }

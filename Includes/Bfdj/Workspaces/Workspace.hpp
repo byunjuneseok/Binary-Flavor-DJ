@@ -22,8 +22,9 @@ namespace Bfdj
         void CreateMixer();
         void CreateDeck();
 
-        void AddDeckModule(DeckModule& deck);
-
+        std::vector<Hub*> GetHubsOnWorkspace() const;
+        std::vector<MixerModule*> GetMixerModulesOnWorkspace() const;
+        std::vector<DeckModule*> GetDeckModulesOnWorkspace() const;
 
     private:
         std::vector<Hub*> HubsOnWorkspace;

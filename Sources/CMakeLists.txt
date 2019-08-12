@@ -36,7 +36,6 @@ add_library(${target}
         )
 
 target_link_libraries(${target}
-        ${EASTL_LIBRARY}
         Qt5::Widgets
         portaudio
         )

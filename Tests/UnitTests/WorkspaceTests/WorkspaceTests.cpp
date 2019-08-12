@@ -14,24 +14,52 @@ TEST(Workspace, Construction)
     Hub testHub;
     EXPECT_EQ(testHub.GetMixer(), nullptr);
 
-    testHub.CreateMixer();
-    testHub.CreateDeck(1);
-    EXPECT_NE(testHub.GetMixer(), nullptr);
-    EXPECT_NE(testHub.GetDeck(1), nullptr);
-    EXPECT_EQ(testHub.GetDeck(2), nullptr);
-    EXPECT_EQ(testHub.GetDeck(3), nullptr);
-    EXPECT_EQ(testHub.GetDeck(4), nullptr);
-
-    testHub.CreateDeck(3);
-    EXPECT_NE(testHub.GetMixer(), nullptr);
-    EXPECT_NE(testHub.GetDeck(1), nullptr);
-    EXPECT_EQ(testHub.GetDeck(2), nullptr);
-    EXPECT_NE(testHub.GetDeck(3), nullptr);
-    EXPECT_EQ(testHub.GetDeck(4), nullptr);
-
 }
 
-TEST(Workspace, BasicFeatures)
+TEST(Workspace, CreateFeatures)
 {
     Workspace testWorkspace;
+
+    EXPECT_EQ(testWorkspace.GetHubsOnWorkspace().size(), 0);
+    EXPECT_EQ(testWorkspace.GetHubsOnWorkspace().size(), 0);
+    EXPECT_EQ(testWorkspace.GetHubsOnWorkspace().size(), 0);
+
+    testWorkspace.CreateHub();
+    EXPECT_EQ(testWorkspace.GetHubsOnWorkspace().size(), 1);
+
+    auto hubOnTestWorkspace = testWorkspace.GetHubsOnWorkspace().front();
+    auto decksOnTestWorkspace = testWorkspace.GetDeckModulesOnWorkspace();
+    EXPECT_EQ(decksOnTestWorkspace.size(), 0);
+    testWorkspace.CreateDeck();
+    testWorkspace.CreateDeck();
+    testWorkspace.CreateDeck();
+    testWorkspace.CreateDeck();
+
+    decksOnTestWorkspace = testWorkspace.GetDeckModulesOnWorkspace();
+    EXPECT_EQ(decksOnTestWorkspace.size(), 4);
+
+    auto MixerModulesOnTestWorkspace = testWorkspace.GetMixerModulesOnWorkspace();
+    EXPECT_EQ(MixerModulesOnTestWorkspace.size(), 0);
+    testWorkspace.CreateMixer();
+
+    MixerModulesOnTestWorkspace = testWorkspace.GetMixerModulesOnWorkspace();
+    EXPECT_EQ(MixerModulesOnTestWorkspace.size(), 1);
+}
+
+TEST(Workspace, WIPInWorkspace) {
+    Workspace testWorkspace;
+
+    testWorkspace.CreateHub();
+
+    testWorkspace.CreateDeck();
+    testWorkspace.CreateDeck();
+    testWorkspace.CreateDeck();
+    testWorkspace.CreateDeck();
+
+    testWorkspace.CreateMixer();
+
+    auto hubOnTestWorkspace = testWorkspace.GetHubsOnWorkspace().front();
+    auto decksOnTestWorkspace = testWorkspace.GetDeckModulesOnWorkspace();
+    auto MixerModulesOnTestWorkspace = testWorkspace.GetMixerModulesOnWorkspace();
+
 }

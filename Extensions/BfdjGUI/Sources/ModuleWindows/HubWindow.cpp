@@ -1,7 +1,6 @@
 //
 // Created by Juneseok Byun on 2019-06-02.
 //
-
 #include <ModuleWindows/HubWindow.hpp>
 #include <QtWidgets>
 #include <string>
