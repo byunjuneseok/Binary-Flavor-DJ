@@ -12,7 +12,6 @@ namespace Bfdj {
     DeckModuleWindow::DeckModuleWindow(QWidget *parent)
         : QMainWindow(parent)
     {
-
         // Initialize
         InitDeckWindow();
 
@@ -40,7 +39,6 @@ namespace Bfdj {
         gridLayout->addWidget(headBox, 0, 0);
 
         // need button box.
-        
         // Play Button
         auto *playButton = new QPushButton(QStringLiteral("Play"));
         gridLayout->addWidget(playButton, 3, 0);

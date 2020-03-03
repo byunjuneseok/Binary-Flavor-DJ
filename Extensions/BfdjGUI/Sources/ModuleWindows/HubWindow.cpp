@@ -11,13 +11,8 @@ namespace Bfdj
     HubWindow::HubWindow(QWidget *parent)
     : QMainWindow(parent)
     {
-        // Initialize
         InitDeckWindow();
-
-        // Initialize layout.
         InitDeckWindowLayout();
-
-
     }
 
     void HubWindow::InitDeckWindow()
@@ -28,7 +23,7 @@ namespace Bfdj
 
     void HubWindow::InitDeckWindowLayout()
     {
-        QWidget* widget = new QWidget(this);
+        auto *widget = new QWidget(this);
         auto *gridLayout = new QGridLayout(widget);
         setCentralWidget(widget);
         widget->setLayout(gridLayout);
@@ -38,6 +33,5 @@ namespace Bfdj
 
         auto *playButton = new QPushButton(QStringLiteral("Check sync."));
         gridLayout->addWidget(playButton, 3, 0);
-
     }
 }

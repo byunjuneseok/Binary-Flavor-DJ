@@ -16,5 +16,4 @@ namespace Bfdj
     {
         return m_parentDeck;
     }
-
 }

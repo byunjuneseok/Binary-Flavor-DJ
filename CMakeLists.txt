@@ -36,4 +36,3 @@ add_subdirectory(Extensions/BfdjGUI)
 add_subdirectory(Libraries/googletest)
 
 add_subdirectory(Libraries/portaudio)
-

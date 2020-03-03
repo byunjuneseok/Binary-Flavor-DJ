@@ -16,10 +16,8 @@ namespace Bfdj
         Q_OBJECT
     public:
         explicit DeckModuleWindow(QWidget *parent);
-
         void InitDeckWindow();
         void InitDeckWindowLayout();
-
         void Play();
         void Cue();
 

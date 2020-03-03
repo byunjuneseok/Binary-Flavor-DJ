@@ -10,35 +10,47 @@ namespace BfdjGUI
     WorkspaceWindow::WorkspaceWindow(QWidget *parent)
     : QMainWindow(parent)
     {
-        // Initialize
         InitDeckWindow();
-
-        // Initialize layout.
         InitDeckWindowLayout();
     }
 
     void WorkspaceWindow::InitDeckWindow()
     {
-        setWindowTitle(QString::fromStdString("Hub"));
-        resize(600, 400);
+        setWindowTitle(QString::fromStdString("Binary Flavor DJ"));
+        resize(800, 600);
     }
 
     void WorkspaceWindow::InitDeckWindowLayout()
     {
-        QWidget* widget = new QWidget(this);
+        auto *widget = new QWidget(this);
         auto *gridLayout = new QGridLayout(widget);
         setCentralWidget(widget);
         widget->setLayout(gridLayout);
-
-        auto *stateText = new QLabel("State", nullptr);
         gridLayout->addWidget(stateText, 0, 0);
-
-        auto *buttonCreateHub = new QPushButton(QStringLiteral("Create Hub"));
-        auto *buttonCreateMixerModule = new QPushButton(QStringLiteral("Create Mixer Module."));
-        auto *buttonCreateDeckModule = new QPushButton(QStringLiteral("Create Deck Module."));
-
         gridLayout->addWidget(buttonCreateHub, 3, 0);
         gridLayout->addWidget(buttonCreateMixerModule, 3, 1);
         gridLayout->addWidget(buttonCreateDeckModule, 3, 2);
+        connect(buttonCreateHub, SIGNAL(released()), this, SLOT(HandleButtonCreateHub()));
+        connect(buttonCreateMixerModule, SIGNAL(released()), this, SLOT(HandleButtonCreateMixerModule()));
+        connect(buttonCreateDeckModule, SIGNAL(released()), this, SLOT(HandleButtonCreateDeckModule()));
+    }
+
+    void WorkspaceWindow::UpdateState() {
+        stateText->setText("a");
+    }
+
+    void WorkspaceWindow::HandleButtonCreateHub() {
+        thisWorkspace.CreateHub();
+        UpdateState();
+    }
+
+    void WorkspaceWindow::HandleButtonCreateMixerModule() {
+        thisWorkspace.CreateMixer();
+        UpdateState();
+    }
+
+    void WorkspaceWindow::HandleButtonCreateDeckModule() {
+        thisWorkspace.CreateDeck();
+        UpdateState();
     }
 }
