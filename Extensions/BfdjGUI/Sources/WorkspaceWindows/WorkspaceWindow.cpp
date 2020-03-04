@@ -5,6 +5,7 @@
 #include <QtWidgets>
 #include <WorkspaceWindows/WorkspaceWindow.hpp>
 
+
 namespace BfdjGUI
 {
     WorkspaceWindow::WorkspaceWindow(QWidget *parent)
@@ -26,6 +27,7 @@ namespace BfdjGUI
         auto *gridLayout = new QGridLayout(widget);
         setCentralWidget(widget);
         widget->setLayout(gridLayout);
+        gridLayout->addWidget(thisStateWindow, 1, 0);
         gridLayout->addWidget(stateText, 0, 0);
         gridLayout->addWidget(buttonCreateHub, 3, 0);
         gridLayout->addWidget(buttonCreateMixerModule, 3, 1);
@@ -41,16 +43,19 @@ namespace BfdjGUI
 
     void WorkspaceWindow::HandleButtonCreateHub() {
         thisWorkspace.CreateHub();
+        qDebug() << "Create 1 hub.";
         UpdateState();
     }
 
     void WorkspaceWindow::HandleButtonCreateMixerModule() {
         thisWorkspace.CreateMixer();
+        qDebug() << "Create 1 mixer.";
         UpdateState();
     }
 
     void WorkspaceWindow::HandleButtonCreateDeckModule() {
         thisWorkspace.CreateDeck();
+        qDebug() << "Create 1 deck.";
         UpdateState();
     }
 }

@@ -8,6 +8,7 @@
 #include <string>
 #include <QtWidgets>
 #include <Workspaces/Workspace.hpp>
+#include <WorkspaceWindows/WorkspaceWindowState.hpp>
 
 namespace BfdjGUI
 {
@@ -27,6 +28,7 @@ namespace BfdjGUI
     private:
         void UpdateState();
         QLabel *stateText = new QLabel("Binary Flavor", nullptr);
+        WorkspaceWindowState *thisStateWindow = new WorkspaceWindowState(this);
         QPushButton *buttonCreateHub = new QPushButton(QStringLiteral("Create Hub"));
         QPushButton *buttonCreateMixerModule = new QPushButton(QStringLiteral("Create Mixer Module."));
         QPushButton *buttonCreateDeckModule = new QPushButton(QStringLiteral("Create Deck Module."));
