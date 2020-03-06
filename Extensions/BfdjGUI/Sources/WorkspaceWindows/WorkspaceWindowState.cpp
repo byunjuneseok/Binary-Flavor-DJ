@@ -3,12 +3,12 @@
 
 namespace BfdjGUI
 {
-    WorkspaceWindowState::WorkspaceWindowState(QWidget *parent)
-    : QWidget(parent)
+    WorkspaceWindowState::WorkspaceWindowState(Bfdj::Workspace* newWorkspace, QWidget* parent)
+    : QWidget(parent), parentWorkspace(newWorkspace)
     {
-        numberHub = 0;
-        numberMixer = 0;
-        numberDecks = 0;
+        numberHubs = newWorkspace->GetHubsOnWorkspace().size();
+        numberMixers = newWorkspace->GetMixerModulesOnWorkspace().size();
+        numberDecks = newWorkspace->GetDeckModulesOnWorkspace().size();
     }
 
     void WorkspaceWindowState::InitWidget() {

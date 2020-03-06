@@ -4,14 +4,15 @@
 
 #include <QtWidgets>
 #include <WorkspaceWindows/WorkspaceWindow.hpp>
+#include <WorkspaceWindows/WorkspaceWindowState.hpp>
 #include <ModuleWindows/HubWindow.hpp>
 #include <ModuleWindows/MixerModuleWindow.hpp>
 #include <ModuleWindows/DeckModuleWindow.hpp>
 
 namespace BfdjGUI
 {
-    WorkspaceWindow::WorkspaceWindow(QWidget *parent)
-    : QMainWindow(parent)
+    WorkspaceWindow::WorkspaceWindow(QWidget* parent, Bfdj::Workspace* newWorkspace)
+    : QMainWindow(parent), parentWorkspace(newWorkspace), currentWorkspaceWindowState(new WorkspaceWindowState(newWorkspace))
     {
         InitDeckWindow();
         InitDeckWindowLayout();
@@ -29,7 +30,7 @@ namespace BfdjGUI
         auto *gridLayout = new QGridLayout(widget);
         setCentralWidget(widget);
         widget->setLayout(gridLayout);
-        gridLayout->addWidget(thisStateWindow, 1, 0);
+        gridLayout->addWidget(currentWorkspaceWindowState, 1, 0);
         gridLayout->addWidget(stateText, 0, 0);
         gridLayout->addWidget(buttonCreateHub, 3, 0);
         gridLayout->addWidget(buttonCreateMixerModule, 3, 1);
@@ -44,28 +45,28 @@ namespace BfdjGUI
     }
 
     BfdjGUI::HubWindow* WorkspaceWindow::CreateHubWindow() {
-        if (parentWorkspace.excessOfHubCapacity()) {
+        if (parentWorkspace->excessOfHubCapacity()) {
             return nullptr;
         }
-        auto newHub = parentWorkspace.CreateHub();
+        auto newHub = parentWorkspace->CreateHub();
         auto newHubWindow = new HubWindow(this, newHub);
         return newHubWindow;
     }
 
     BfdjGUI::MixerModuleWindow* WorkspaceWindow::CreateMixerModuleWindow() {
-        if (parentWorkspace.excessOfMixerModuleCapacity()) {
+        if (parentWorkspace->excessOfMixerModuleCapacity()) {
             return nullptr;
         }
-        auto newMixerModule = parentWorkspace.CreateMixer();
+        auto newMixerModule = parentWorkspace->CreateMixer();
         auto newMixerModuleWindow = new MixerModuleWindow(this, newMixerModule);
         return newMixerModuleWindow;
     }
 
     BfdjGUI::DeckModuleWindow* WorkspaceWindow::CreateDeckModuleWindow() {
-        if (parentWorkspace.excessOfDeckModuleCapacity()) {
+        if (parentWorkspace->excessOfDeckModuleCapacity()) {
             return nullptr;
         }
-        auto newDeckModule = parentWorkspace.CreateDeck();
+        auto newDeckModule = parentWorkspace->CreateDeck();
         auto newDeckModuleWindow = new DeckModuleWindow(this, newDeckModule);
         return newDeckModuleWindow;
     }

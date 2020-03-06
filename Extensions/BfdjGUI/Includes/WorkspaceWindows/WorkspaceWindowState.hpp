@@ -7,6 +7,7 @@
 
 #include <string>
 #include <QtWidgets>
+#include <Workspaces/Workspace.hpp>
 
 namespace BfdjGUI
 {
@@ -14,13 +15,14 @@ namespace BfdjGUI
     {
         Q_OBJECT
     public:
-        explicit WorkspaceWindowState(QWidget *parent = nullptr);
+        explicit WorkspaceWindowState(Bfdj::Workspace* newWorkspace, QWidget* parent = nullptr);
         void InitWidget();
     protected:
+        Bfdj::Workspace* const parentWorkspace;
     private slots:
     private:
-        int numberHub;
-        int numberMixer;
+        int numberHubs;
+        int numberMixers;
         int numberDecks;
     };
 }
