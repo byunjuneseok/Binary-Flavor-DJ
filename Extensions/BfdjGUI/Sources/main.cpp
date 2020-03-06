@@ -4,15 +4,14 @@
 
 
 #include <WorkspaceWindows/WorkspaceWindow.hpp>
+#include <Workspaces/Workspace.hpp>
 #include <QApplication>
 #include <QWidget>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-
-    BfdjGUI::WorkspaceWindow w(nullptr);
+    BfdjGUI::WorkspaceWindow w(nullptr, new Bfdj::Workspace);
     w.show();
-
     return app.exec();
 }

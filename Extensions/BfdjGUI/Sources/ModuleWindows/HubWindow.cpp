@@ -2,22 +2,18 @@
 // Created by Juneseok Byun on 2019-06-02.
 //
 #include <ModuleWindows/HubWindow.hpp>
+#include <Modules/Hub.hpp>
 #include <QtWidgets>
 #include <string>
-#include <iostream>
 
-namespace Bfdj
+namespace BfdjGUI
 {
-    HubWindow::HubWindow(QWidget *parent)
+    HubWindow::HubWindow(QWidget *parent, Bfdj::Hub* newHub)
     : QMainWindow(parent)
     {
-        // Initialize
+        parentHub = newHub;
         InitDeckWindow();
-
-        // Initialize layout.
         InitDeckWindowLayout();
-
-
     }
 
     void HubWindow::InitDeckWindow()
@@ -28,7 +24,7 @@ namespace Bfdj
 
     void HubWindow::InitDeckWindowLayout()
     {
-        QWidget* widget = new QWidget(this);
+        auto *widget = new QWidget(this);
         auto *gridLayout = new QGridLayout(widget);
         setCentralWidget(widget);
         widget->setLayout(gridLayout);
@@ -38,6 +34,5 @@ namespace Bfdj
 
         auto *playButton = new QPushButton(QStringLiteral("Check sync."));
         gridLayout->addWidget(playButton, 3, 0);
-
     }
 }

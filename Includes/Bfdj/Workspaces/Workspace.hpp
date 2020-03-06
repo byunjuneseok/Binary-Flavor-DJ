@@ -17,17 +17,17 @@ namespace Bfdj
     public:
         Workspace() = default;
         ~Workspace() = default;
-
-        void CreateHub();
-        void CreateMixer();
-        void CreateDeck();
-
+        Bfdj::Hub* CreateHub();
+        Bfdj::MixerModule* CreateMixer();
+        Bfdj::DeckModule* CreateDeck();
         std::vector<Hub*> GetHubsOnWorkspace() const;
         std::vector<MixerModule*> GetMixerModulesOnWorkspace() const;
         std::vector<DeckModule*> GetDeckModulesOnWorkspace() const;
-
+        bool excessOfHubCapacity() const;
+        bool excessOfMixerModuleCapacity() const;
+        bool excessOfDeckModuleCapacity() const;
     private:
-        std::vector<Hub*> HubsOnWorkspace;
+        std::vector<Hub*> hubsOnWorkspace;
         std::vector<MixerModule*> mixerModulesOnWorkspace;
         std::vector<DeckModule*> deckModulesOnWorkspace;
     };

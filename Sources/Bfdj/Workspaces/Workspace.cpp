@@ -5,27 +5,30 @@
 
 namespace Bfdj
 {
-    void Workspace::CreateHub()
+    Bfdj::Hub* Workspace::CreateHub()
     {
         auto* newHub = new Hub();
-        HubsOnWorkspace.push_back(newHub);
+        hubsOnWorkspace.push_back(newHub);
+        return newHub;
     }
 
-    void Workspace::CreateMixer()
+    Bfdj::MixerModule* Workspace::CreateMixer()
     {
         auto* newMixer = new MixerModule();
         mixerModulesOnWorkspace.push_back(newMixer);
+        return newMixer;
     }
 
-    void Workspace::CreateDeck()
+    Bfdj::DeckModule* Workspace::CreateDeck()
     {
         auto* newDeck = new DeckModule();
         deckModulesOnWorkspace.push_back(newDeck);
+        return newDeck;
     }
 
     std::vector<Hub*> Workspace::GetHubsOnWorkspace() const
     {
-        return HubsOnWorkspace;
+        return hubsOnWorkspace;
     }
 
     std::vector<MixerModule*> Workspace::GetMixerModulesOnWorkspace() const
@@ -37,4 +40,18 @@ namespace Bfdj
     {
         return deckModulesOnWorkspace;
     }
+
+    bool Workspace::excessOfHubCapacity() const
+    {
+        return this->hubsOnWorkspace.size() >= 2;
+    };
+
+    bool Workspace::excessOfMixerModuleCapacity() const {
+        return this->mixerModulesOnWorkspace.size() >= 2;
+    };
+
+    bool Workspace::excessOfDeckModuleCapacity() const {
+        return this->deckModulesOnWorkspace.size() >= 4;
+    };
+
 }

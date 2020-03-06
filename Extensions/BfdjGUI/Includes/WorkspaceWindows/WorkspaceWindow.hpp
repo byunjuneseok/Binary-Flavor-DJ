@@ -8,24 +8,36 @@
 #include <string>
 #include <QtWidgets>
 #include <Workspaces/Workspace.hpp>
+#include <WorkspaceWindows/WorkspaceWindowState.hpp>
+#include <Includes/ModuleWindows/HubWindow.hpp>
+#include <Includes/ModuleWindows/MixerModuleWindow.hpp>
+#include <Includes/ModuleWindows/DeckModuleWindow.hpp>
 
 namespace BfdjGUI
 {
     class WorkspaceWindow : public QMainWindow
     {
         Q_OBJECT
-
     public:
-        explicit WorkspaceWindow(QWidget *parent);
-
+        explicit WorkspaceWindow(QWidget *parent, Bfdj::Workspace *newWorkspace);
         void InitDeckWindow();
         void InitDeckWindowLayout();
-
     protected:
-        Bfdj::Workspace thisWorkspace;
-
+        Bfdj::Workspace* const parentWorkspace;
+        WorkspaceWindowState* const currentWorkspaceWindowState;
+    private slots:
+        void HandleButtonCreateHub();
+        void HandleButtonCreateMixerModule();
+        void HandleButtonCreateDeckModule();
     private:
-
+        void UpdateState();
+        BfdjGUI::HubWindow* CreateHubWindow();
+        BfdjGUI::MixerModuleWindow* CreateMixerModuleWindow();
+        BfdjGUI::DeckModuleWindow* CreateDeckModuleWindow();
+        QLabel *stateText = new QLabel("Binary Flavor", nullptr);
+        QPushButton *buttonCreateHub = new QPushButton(QStringLiteral("Create Hub"));
+        QPushButton *buttonCreateMixerModule = new QPushButton(QStringLiteral("Create Mixer Module."));
+        QPushButton *buttonCreateDeckModule = new QPushButton(QStringLiteral("Create Deck Module."));
     };
 }
 #endif //BINARYFLAVORDJ_WORKSPACEWINDOW_HPP

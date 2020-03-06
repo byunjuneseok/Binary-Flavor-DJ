@@ -45,10 +45,8 @@ namespace Bfdj
         if (playState)
         {
             playState = false;
-
             std::cout << "Back to the Cue point." << std::endl;
             std::cout << "Playing -> Paused" << std::endl;
-
         }
         else
         {

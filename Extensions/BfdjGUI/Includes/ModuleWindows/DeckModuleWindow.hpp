@@ -9,22 +9,20 @@
 #include <QtWidgets>
 #include <Modules/DeckModule.hpp>
 
-namespace Bfdj
+namespace BfdjGUI
 {
     class DeckModuleWindow : public QMainWindow
     {
         Q_OBJECT
     public:
-        explicit DeckModuleWindow(QWidget *parent);
-
+        explicit DeckModuleWindow(QWidget* parent, Bfdj::DeckModule* newDeckModule);
         void InitDeckWindow();
         void InitDeckWindowLayout();
-
         void Play();
         void Cue();
 
     private:
-        DeckModule* parentDeckModule;
+        Bfdj::DeckModule* parentDeckModule;
     };
 }
 
