@@ -9,7 +9,7 @@
 #include <iostream>
 
 namespace BfdjGUI {
-    DeckModuleWindow::DeckModuleWindow(QWidget *parent)
+    DeckModuleWindow::DeckModuleWindow(QWidget *parent, Bfdj::DeckModule* newDeckModule)
         : QMainWindow(parent)
     {
         // Initialize

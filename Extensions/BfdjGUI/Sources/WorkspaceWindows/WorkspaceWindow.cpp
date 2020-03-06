@@ -5,6 +5,8 @@
 #include <QtWidgets>
 #include <WorkspaceWindows/WorkspaceWindow.hpp>
 #include <ModuleWindows/HubWindow.hpp>
+#include <ModuleWindows/MixerModuleWindow.hpp>
+#include <ModuleWindows/DeckModuleWindow.hpp>
 
 namespace BfdjGUI
 {
@@ -41,27 +43,55 @@ namespace BfdjGUI
         stateText->setText("a");
     }
 
-    void WorkspaceWindow::CreateHubWindow() {
-        auto newHub = thisWorkspace.CreateHub();
+    BfdjGUI::HubWindow* WorkspaceWindow::CreateHubWindow() {
+        if (parentWorkspace.excessOfHubCapacity()) {
+            return nullptr;
+        }
+        auto newHub = parentWorkspace.CreateHub();
         auto newHubWindow = new HubWindow(this, newHub);
+        return newHubWindow;
     }
 
-    void WorkspaceWindow::HandleButtonCreateHub() {
-        qDebug() << "Create 1 hub.";
+    BfdjGUI::MixerModuleWindow* WorkspaceWindow::CreateMixerModuleWindow() {
+        if (parentWorkspace.excessOfMixerModuleCapacity()) {
+            return nullptr;
+        }
+        auto newMixerModule = parentWorkspace.CreateMixer();
+        auto newMixerModuleWindow = new MixerModuleWindow(this, newMixerModule);
+        return newMixerModuleWindow;
+    }
 
-        CreateHubWindow();
-        UpdateState();
+    BfdjGUI::DeckModuleWindow* WorkspaceWindow::CreateDeckModuleWindow() {
+        if (parentWorkspace.excessOfDeckModuleCapacity()) {
+            return nullptr;
+        }
+        auto newDeckModule = parentWorkspace.CreateDeck();
+        auto newDeckModuleWindow = new DeckModuleWindow(this, newDeckModule);
+        return newDeckModuleWindow;
+    }
+
+
+    void WorkspaceWindow::HandleButtonCreateHub() {
+        auto newHubWindow = CreateHubWindow();
+        if (newHubWindow) {
+            UpdateState();
+            newHubWindow->show();
+        }
     }
 
     void WorkspaceWindow::HandleButtonCreateMixerModule() {
-        thisWorkspace.CreateMixer();
-        qDebug() << "Create 1 mixer.";
-        UpdateState();
+        auto newMixerModuleWindow = CreateMixerModuleWindow();
+        if (newMixerModuleWindow) {
+            UpdateState();
+            newMixerModuleWindow->show();
+        }
     }
 
     void WorkspaceWindow::HandleButtonCreateDeckModule() {
-        thisWorkspace.CreateDeck();
-        qDebug() << "Create 1 deck.";
-        UpdateState();
+        auto newDeckModuleWindow = CreateDeckModuleWindow();
+        if (newDeckModuleWindow) {
+            UpdateState();
+            newDeckModuleWindow->show();
+        }
     }
 }

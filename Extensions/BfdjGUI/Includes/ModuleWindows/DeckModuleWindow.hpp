@@ -15,7 +15,7 @@ namespace BfdjGUI
     {
         Q_OBJECT
     public:
-        explicit DeckModuleWindow(QWidget *parent);
+        explicit DeckModuleWindow(QWidget* parent, Bfdj::DeckModule* newDeckModule);
         void InitDeckWindow();
         void InitDeckWindowLayout();
         void Play();

@@ -9,6 +9,9 @@
 #include <QtWidgets>
 #include <Workspaces/Workspace.hpp>
 #include <WorkspaceWindows/WorkspaceWindowState.hpp>
+#include <Includes/ModuleWindows/HubWindow.hpp>
+#include <Includes/ModuleWindows/MixerModuleWindow.hpp>
+#include <Includes/ModuleWindows/DeckModuleWindow.hpp>
 
 namespace BfdjGUI
 {
@@ -20,14 +23,16 @@ namespace BfdjGUI
         void InitDeckWindow();
         void InitDeckWindowLayout();
     protected:
-        Bfdj::Workspace thisWorkspace;
+        Bfdj::Workspace parentWorkspace;
     private slots:
         void HandleButtonCreateHub();
         void HandleButtonCreateMixerModule();
         void HandleButtonCreateDeckModule();
     private:
         void UpdateState();
-        void CreateHubWindow();
+        BfdjGUI::HubWindow* CreateHubWindow();
+        BfdjGUI::MixerModuleWindow* CreateMixerModuleWindow();
+        BfdjGUI::DeckModuleWindow* CreateDeckModuleWindow();
         QLabel *stateText = new QLabel("Binary Flavor", nullptr);
         WorkspaceWindowState *thisStateWindow = new WorkspaceWindowState(this);
         QPushButton *buttonCreateHub = new QPushButton(QStringLiteral("Create Hub"));

@@ -5,7 +5,6 @@
 #include <Modules/Hub.hpp>
 #include <QtWidgets>
 #include <string>
-#include <iostream>
 
 namespace BfdjGUI
 {
