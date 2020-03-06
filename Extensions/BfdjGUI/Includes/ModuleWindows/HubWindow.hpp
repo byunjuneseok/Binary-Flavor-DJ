@@ -7,19 +7,19 @@
 
 #include <string>
 #include <QtWidgets>
+#include <Modules/Hub.hpp>
 
-
-namespace Bfdj
+namespace BfdjGUI
 {
     class HubWindow : public QMainWindow
     {
         Q_OBJECT
     public:
-        explicit HubWindow(QWidget *parent);
-
+        explicit HubWindow(QWidget* parent, Bfdj::Hub* newHub);
         void InitDeckWindow();
         void InitDeckWindowLayout();
-
+    protected:
+        Bfdj::Hub* parentHub;
     private:
     };
 }

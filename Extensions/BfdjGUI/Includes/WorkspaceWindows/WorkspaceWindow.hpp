@@ -27,6 +27,7 @@ namespace BfdjGUI
         void HandleButtonCreateDeckModule();
     private:
         void UpdateState();
+        void CreateHubWindow();
         QLabel *stateText = new QLabel("Binary Flavor", nullptr);
         WorkspaceWindowState *thisStateWindow = new WorkspaceWindowState(this);
         QPushButton *buttonCreateHub = new QPushButton(QStringLiteral("Create Hub"));

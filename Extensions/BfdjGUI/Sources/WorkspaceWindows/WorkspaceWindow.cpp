@@ -4,7 +4,7 @@
 
 #include <QtWidgets>
 #include <WorkspaceWindows/WorkspaceWindow.hpp>
-
+#include <ModuleWindows/HubWindow.hpp>
 
 namespace BfdjGUI
 {
@@ -41,9 +41,15 @@ namespace BfdjGUI
         stateText->setText("a");
     }
 
+    void WorkspaceWindow::CreateHubWindow() {
+        auto newHub = thisWorkspace.CreateHub();
+        auto newHubWindow = new HubWindow(this, newHub);
+    }
+
     void WorkspaceWindow::HandleButtonCreateHub() {
-        thisWorkspace.CreateHub();
         qDebug() << "Create 1 hub.";
+
+        CreateHubWindow();
         UpdateState();
     }
 

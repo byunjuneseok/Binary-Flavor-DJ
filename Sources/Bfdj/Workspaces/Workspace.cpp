@@ -5,10 +5,11 @@
 
 namespace Bfdj
 {
-    void Workspace::CreateHub()
+    Bfdj::Hub* Workspace::CreateHub()
     {
         auto* newHub = new Hub();
         HubsOnWorkspace.push_back(newHub);
+        return newHub;
     }
 
     void Workspace::CreateMixer()

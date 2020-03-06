@@ -18,7 +18,7 @@ namespace Bfdj
         Workspace() = default;
         ~Workspace() = default;
 
-        void CreateHub();
+        Bfdj::Hub* CreateHub();
         void CreateMixer();
         void CreateDeck();
 

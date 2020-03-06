@@ -9,7 +9,7 @@
 #include <QtWidgets>
 #include <Modules/DeckModule.hpp>
 
-namespace Bfdj
+namespace BfdjGUI
 {
     class DeckModuleWindow : public QMainWindow
     {
@@ -22,7 +22,7 @@ namespace Bfdj
         void Cue();
 
     private:
-        DeckModule* parentDeckModule;
+        Bfdj::DeckModule* parentDeckModule;
     };
 }
 

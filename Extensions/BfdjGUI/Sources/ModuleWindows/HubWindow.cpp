@@ -2,15 +2,17 @@
 // Created by Juneseok Byun on 2019-06-02.
 //
 #include <ModuleWindows/HubWindow.hpp>
+#include <Modules/Hub.hpp>
 #include <QtWidgets>
 #include <string>
 #include <iostream>
 
-namespace Bfdj
+namespace BfdjGUI
 {
-    HubWindow::HubWindow(QWidget *parent)
+    HubWindow::HubWindow(QWidget *parent, Bfdj::Hub* newHub)
     : QMainWindow(parent)
     {
+        parentHub = newHub;
         InitDeckWindow();
         InitDeckWindowLayout();
     }
